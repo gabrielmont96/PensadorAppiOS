@@ -8,9 +8,11 @@
 
 import UIKit
 
+var baseURL =  "https://pensadorapi.herokuapp.com/api"
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
     var window: UIWindow?
 
 

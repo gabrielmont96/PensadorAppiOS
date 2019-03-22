@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		73575DF8224408D100C932D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73575DF7224408D100C932D1 /* AppDelegate.swift */; };
-		73575DFA224408D100C932D1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73575DF9224408D100C932D1 /* ViewController.swift */; };
+		73575DFA224408D100C932D1 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73575DF9224408D100C932D1 /* MainViewController.swift */; };
 		73575DFD224408D100C932D1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73575DFB224408D100C932D1 /* Main.storyboard */; };
 		73575DFF224408D300C932D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73575DFE224408D300C932D1 /* Assets.xcassets */; };
 		73575E02224408D300C932D1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73575E00224408D300C932D1 /* LaunchScreen.storyboard */; };
@@ -16,6 +16,29 @@
 		73575E18224408D300C932D1 /* PensadorAppiOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73575E17224408D300C932D1 /* PensadorAppiOSUITests.swift */; };
 		73575E2E22440DC100C932D1 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73575E2D22440DC100C932D1 /* Network.swift */; };
 		73575E3022440F6B00C932D1 /* ServiceAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73575E2F22440F6B00C932D1 /* ServiceAPI.swift */; };
+		73575E45224411E800C932D1 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 73575E33224411E600C932D1 /* Lato-Bold.ttf */; };
+		73575E46224411E800C932D1 /* Lato-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 73575E34224411E600C932D1 /* Lato-BlackItalic.ttf */; };
+		73575E47224411E800C932D1 /* Lato-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 73575E35224411E600C932D1 /* Lato-Italic.ttf */; };
+		73575E48224411E800C932D1 /* Lato-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 73575E36224411E600C932D1 /* Lato-BoldItalic.ttf */; };
+		73575E49224411E800C932D1 /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 73575E37224411E600C932D1 /* Lato-Light.ttf */; };
+		73575E4A224411E800C932D1 /* Lato-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 73575E38224411E600C932D1 /* Lato-Thin.ttf */; };
+		73575E4B224411E800C932D1 /* Lato-HeavyItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 73575E39224411E700C932D1 /* Lato-HeavyItalic.ttf */; };
+		73575E4C224411E800C932D1 /* Lato-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 73575E3A224411E700C932D1 /* Lato-ThinItalic.ttf */; };
+		73575E4D224411E800C932D1 /* Lato-Heavy.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 73575E3B224411E700C932D1 /* Lato-Heavy.ttf */; };
+		73575E4E224411E800C932D1 /* Lato-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 73575E3C224411E700C932D1 /* Lato-MediumItalic.ttf */; };
+		73575E4F224411E800C932D1 /* Lato-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 73575E3D224411E700C932D1 /* Lato-Semibold.ttf */; };
+		73575E50224411E800C932D1 /* Lato-SemiboldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 73575E3E224411E700C932D1 /* Lato-SemiboldItalic.ttf */; };
+		73575E51224411E800C932D1 /* Lato-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 73575E3F224411E700C932D1 /* Lato-Medium.ttf */; };
+		73575E52224411E800C932D1 /* Lato-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 73575E40224411E700C932D1 /* Lato-Black.ttf */; };
+		73575E53224411E800C932D1 /* Lato-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 73575E41224411E800C932D1 /* Lato-LightItalic.ttf */; };
+		73575E54224411E800C932D1 /* Lato-HairlineItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 73575E42224411E800C932D1 /* Lato-HairlineItalic.ttf */; };
+		73575E55224411E800C932D1 /* Lato-Hairline.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 73575E43224411E800C932D1 /* Lato-Hairline.ttf */; };
+		73575E56224411E800C932D1 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 73575E44224411E800C932D1 /* Lato-Regular.ttf */; };
+		73575E582244141600C932D1 /* Pensador.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73575E572244141600C932D1 /* Pensador.swift */; };
+		73575E5A2244147E00C932D1 /* ListaCat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73575E592244147E00C932D1 /* ListaCat.swift */; };
+		73575E5C224415C100C932D1 /* PensadorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73575E5B224415C100C932D1 /* PensadorPresenter.swift */; };
+		73575E60224518CE00C932D1 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73575E5F224518CE00C932D1 /* CategoryCell.swift */; };
+		73575E67224547DD00C932D1 /* Frase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73575E66224547DD00C932D1 /* Frase.swift */; };
 		BE18EFA08A6224DEBCF24B47 /* Pods_PensadorAppiOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D07C3256B6F4581C1E07DE5 /* Pods_PensadorAppiOSTests.framework */; };
 		D51EF00B4EFEA8D43F0C074B /* Pods_PensadorAppiOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5247CA952E0F51E42AA7992 /* Pods_PensadorAppiOSUITests.framework */; };
 		EAAE6C8B3A34950669ECE0D4 /* Pods_PensadorAppiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39BAB8F4B57135C7055C57FB /* Pods_PensadorAppiOS.framework */; };
@@ -45,7 +68,7 @@
 		6F5374144E78A6B50408F1B3 /* Pods-PensadorAppiOSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PensadorAppiOSUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PensadorAppiOSUITests/Pods-PensadorAppiOSUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		73575DF4224408D100C932D1 /* PensadorAppiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PensadorAppiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73575DF7224408D100C932D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		73575DF9224408D100C932D1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		73575DF9224408D100C932D1 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		73575DFC224408D100C932D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		73575DFE224408D300C932D1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		73575E01224408D300C932D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -58,6 +81,29 @@
 		73575E19224408D300C932D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		73575E2D22440DC100C932D1 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		73575E2F22440F6B00C932D1 /* ServiceAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceAPI.swift; sourceTree = "<group>"; };
+		73575E33224411E600C932D1 /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
+		73575E34224411E600C932D1 /* Lato-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-BlackItalic.ttf"; sourceTree = "<group>"; };
+		73575E35224411E600C932D1 /* Lato-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Italic.ttf"; sourceTree = "<group>"; };
+		73575E36224411E600C932D1 /* Lato-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-BoldItalic.ttf"; sourceTree = "<group>"; };
+		73575E37224411E600C932D1 /* Lato-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Light.ttf"; sourceTree = "<group>"; };
+		73575E38224411E600C932D1 /* Lato-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Thin.ttf"; sourceTree = "<group>"; };
+		73575E39224411E700C932D1 /* Lato-HeavyItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-HeavyItalic.ttf"; sourceTree = "<group>"; };
+		73575E3A224411E700C932D1 /* Lato-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-ThinItalic.ttf"; sourceTree = "<group>"; };
+		73575E3B224411E700C932D1 /* Lato-Heavy.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Heavy.ttf"; sourceTree = "<group>"; };
+		73575E3C224411E700C932D1 /* Lato-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-MediumItalic.ttf"; sourceTree = "<group>"; };
+		73575E3D224411E700C932D1 /* Lato-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Semibold.ttf"; sourceTree = "<group>"; };
+		73575E3E224411E700C932D1 /* Lato-SemiboldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-SemiboldItalic.ttf"; sourceTree = "<group>"; };
+		73575E3F224411E700C932D1 /* Lato-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Medium.ttf"; sourceTree = "<group>"; };
+		73575E40224411E700C932D1 /* Lato-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Black.ttf"; sourceTree = "<group>"; };
+		73575E41224411E800C932D1 /* Lato-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-LightItalic.ttf"; sourceTree = "<group>"; };
+		73575E42224411E800C932D1 /* Lato-HairlineItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-HairlineItalic.ttf"; sourceTree = "<group>"; };
+		73575E43224411E800C932D1 /* Lato-Hairline.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Hairline.ttf"; sourceTree = "<group>"; };
+		73575E44224411E800C932D1 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
+		73575E572244141600C932D1 /* Pensador.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pensador.swift; sourceTree = "<group>"; };
+		73575E592244147E00C932D1 /* ListaCat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaCat.swift; sourceTree = "<group>"; };
+		73575E5B224415C100C932D1 /* PensadorPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PensadorPresenter.swift; sourceTree = "<group>"; };
+		73575E5F224518CE00C932D1 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
+		73575E66224547DD00C932D1 /* Frase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Frase.swift; sourceTree = "<group>"; };
 		7C07580A290D417E7A44F46B /* Pods-PensadorAppiOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PensadorAppiOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PensadorAppiOS/Pods-PensadorAppiOS.debug.xcconfig"; sourceTree = "<group>"; };
 		99547394AFA1A0865F75D490 /* Pods-PensadorAppiOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PensadorAppiOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PensadorAppiOSTests/Pods-PensadorAppiOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		A1D058167C93AAD95306D364 /* Pods-PensadorAppiOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PensadorAppiOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PensadorAppiOSTests/Pods-PensadorAppiOSTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -168,10 +214,10 @@
 		73575E2622440BEB00C932D1 /* resource */ = {
 			isa = PBXGroup;
 			children = (
+				73575E32224411CD00C932D1 /* font */,
+				73575E31224410E800C932D1 /* storyboard */,
 				73575E2C22440C9000C932D1 /* config */,
 				73575DFE224408D300C932D1 /* Assets.xcassets */,
-				73575E00224408D300C932D1 /* LaunchScreen.storyboard */,
-				73575DFB224408D100C932D1 /* Main.storyboard */,
 			);
 			path = resource;
 			sourceTree = "<group>";
@@ -179,6 +225,7 @@
 		73575E2722440C0200C932D1 /* presenter */ = {
 			isa = PBXGroup;
 			children = (
+				73575E5B224415C100C932D1 /* PensadorPresenter.swift */,
 			);
 			path = presenter;
 			sourceTree = "<group>";
@@ -186,6 +233,9 @@
 		73575E2822440C0D00C932D1 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				73575E572244141600C932D1 /* Pensador.swift */,
+				73575E592244147E00C932D1 /* ListaCat.swift */,
+				73575E66224547DD00C932D1 /* Frase.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -193,7 +243,7 @@
 		73575E2922440C1600C932D1 /* view */ = {
 			isa = PBXGroup;
 			children = (
-				73575DF9224408D100C932D1 /* ViewController.swift */,
+				73575DF9224408D100C932D1 /* MainViewController.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -201,6 +251,8 @@
 		73575E2A22440C2100C932D1 /* base */ = {
 			isa = PBXGroup;
 			children = (
+				73575E6122453E9200C932D1 /* Extensions */,
+				73575E5D224518A500C932D1 /* Components */,
 			);
 			path = base;
 			sourceTree = "<group>";
@@ -220,6 +272,63 @@
 				73575E03224408D300C932D1 /* Info.plist */,
 			);
 			path = config;
+			sourceTree = "<group>";
+		};
+		73575E31224410E800C932D1 /* storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				73575E00224408D300C932D1 /* LaunchScreen.storyboard */,
+				73575DFB224408D100C932D1 /* Main.storyboard */,
+			);
+			path = storyboard;
+			sourceTree = "<group>";
+		};
+		73575E32224411CD00C932D1 /* font */ = {
+			isa = PBXGroup;
+			children = (
+				73575E40224411E700C932D1 /* Lato-Black.ttf */,
+				73575E34224411E600C932D1 /* Lato-BlackItalic.ttf */,
+				73575E33224411E600C932D1 /* Lato-Bold.ttf */,
+				73575E36224411E600C932D1 /* Lato-BoldItalic.ttf */,
+				73575E43224411E800C932D1 /* Lato-Hairline.ttf */,
+				73575E42224411E800C932D1 /* Lato-HairlineItalic.ttf */,
+				73575E3B224411E700C932D1 /* Lato-Heavy.ttf */,
+				73575E39224411E700C932D1 /* Lato-HeavyItalic.ttf */,
+				73575E35224411E600C932D1 /* Lato-Italic.ttf */,
+				73575E37224411E600C932D1 /* Lato-Light.ttf */,
+				73575E41224411E800C932D1 /* Lato-LightItalic.ttf */,
+				73575E3F224411E700C932D1 /* Lato-Medium.ttf */,
+				73575E3C224411E700C932D1 /* Lato-MediumItalic.ttf */,
+				73575E44224411E800C932D1 /* Lato-Regular.ttf */,
+				73575E3D224411E700C932D1 /* Lato-Semibold.ttf */,
+				73575E3E224411E700C932D1 /* Lato-SemiboldItalic.ttf */,
+				73575E38224411E600C932D1 /* Lato-Thin.ttf */,
+				73575E3A224411E700C932D1 /* Lato-ThinItalic.ttf */,
+			);
+			path = font;
+			sourceTree = "<group>";
+		};
+		73575E5D224518A500C932D1 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				73575E5E224518AB00C932D1 /* cell */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		73575E5E224518AB00C932D1 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				73575E5F224518CE00C932D1 /* CategoryCell.swift */,
+			);
+			path = cell;
+			sourceTree = "<group>";
+		};
+		73575E6122453E9200C932D1 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		A3558AC3B9C372E7350C6652 /* Pods */ = {
@@ -343,9 +452,27 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73575E4E224411E800C932D1 /* Lato-MediumItalic.ttf in Resources */,
+				73575E4D224411E800C932D1 /* Lato-Heavy.ttf in Resources */,
+				73575E4B224411E800C932D1 /* Lato-HeavyItalic.ttf in Resources */,
 				73575E02224408D300C932D1 /* LaunchScreen.storyboard in Resources */,
+				73575E56224411E800C932D1 /* Lato-Regular.ttf in Resources */,
+				73575E4A224411E800C932D1 /* Lato-Thin.ttf in Resources */,
+				73575E50224411E800C932D1 /* Lato-SemiboldItalic.ttf in Resources */,
+				73575E55224411E800C932D1 /* Lato-Hairline.ttf in Resources */,
 				73575DFF224408D300C932D1 /* Assets.xcassets in Resources */,
+				73575E53224411E800C932D1 /* Lato-LightItalic.ttf in Resources */,
+				73575E46224411E800C932D1 /* Lato-BlackItalic.ttf in Resources */,
+				73575E4F224411E800C932D1 /* Lato-Semibold.ttf in Resources */,
+				73575E54224411E800C932D1 /* Lato-HairlineItalic.ttf in Resources */,
+				73575E51224411E800C932D1 /* Lato-Medium.ttf in Resources */,
 				73575DFD224408D100C932D1 /* Main.storyboard in Resources */,
+				73575E47224411E800C932D1 /* Lato-Italic.ttf in Resources */,
+				73575E4C224411E800C932D1 /* Lato-ThinItalic.ttf in Resources */,
+				73575E48224411E800C932D1 /* Lato-BoldItalic.ttf in Resources */,
+				73575E45224411E800C932D1 /* Lato-Bold.ttf in Resources */,
+				73575E52224411E800C932D1 /* Lato-Black.ttf in Resources */,
+				73575E49224411E800C932D1 /* Lato-Light.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -465,10 +592,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				73575DFA224408D100C932D1 /* ViewController.swift in Sources */,
+				73575E5A2244147E00C932D1 /* ListaCat.swift in Sources */,
+				73575E5C224415C100C932D1 /* PensadorPresenter.swift in Sources */,
+				73575E67224547DD00C932D1 /* Frase.swift in Sources */,
+				73575DFA224408D100C932D1 /* MainViewController.swift in Sources */,
 				73575DF8224408D100C932D1 /* AppDelegate.swift in Sources */,
 				73575E3022440F6B00C932D1 /* ServiceAPI.swift in Sources */,
+				73575E582244141600C932D1 /* Pensador.swift in Sources */,
 				73575E2E22440DC100C932D1 /* Network.swift in Sources */,
+				73575E60224518CE00C932D1 /* CategoryCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
