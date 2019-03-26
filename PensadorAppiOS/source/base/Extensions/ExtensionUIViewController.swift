@@ -18,8 +18,6 @@ extension UIViewController {
         toastLabel.font = UIFont(name: "Montserrat-Bold", size: 12.0)
         toastLabel.text = message
         toastLabel.alpha = 1.0
-//        toastLabel.layer.cornerRadius = 5
-//        toastLabel.clipsToBounds  =  true
         self.view.addSubview(toastLabel)
         DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(500)) {
             UIView.animate(withDuration: 2.0, delay: 0.1, options: .curveEaseOut, animations: {
