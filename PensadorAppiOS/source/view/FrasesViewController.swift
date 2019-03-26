@@ -16,6 +16,7 @@ class PhraseViewController: UIViewController {
     var phraseSelected: Phrase?
     var page = 1
     
+    @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var tableView: UITableView! {
         didSet {
             tableView.delegate = self
@@ -28,9 +29,25 @@ class PhraseViewController: UIViewController {
         presenter = PhrasePresenter(self)
         presenter.getPhrases(param: txtSearch, page: page)
     }
-
-    func copyText (text: String) {
-        print(text)
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        lblTitle.text = txtSearch
+    }
+    
+    @objc func tapBtnCopy(sender: UIButton) {
+        let buttonTag = sender.tag
+        if let text = phrases[buttonTag].text {
+            UIPasteboard.general.string = text
+        }
+    }
+    
+    @objc func tapBtnShare(sender: UIButton) {
+        let buttonTag = sender.tag
+        if let text = phrases[buttonTag].text {
+            let vc = UIActivityViewController(activityItems: [text], applicationActivities: [])
+            present(vc, animated: true)
+        }
     }
 
 }
@@ -46,6 +63,11 @@ extension PhraseViewController: UITableViewDataSource {
         let identifier = PhrasesCell.identifier
         if let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as? PhrasesCell {
             cell.prepareCell(phrases: phrases[indexPath.row])
+            cell.btnCopy.addTarget(self, action: #selector(tapBtnCopy(sender:)), for: .touchUpInside)
+            cell.btnCopy.tag = indexPath.row
+            cell.btnShare.addTarget(self, action: #selector(tapBtnShare(sender:)), for: .touchUpInside)
+            cell.btnShare.tag = indexPath.row
+            
             return cell
         }
         return UITableViewCell()
@@ -62,7 +84,7 @@ extension PhraseViewController: UITableViewDataSource {
             page = page+1
         }
     }
-    
+
     
 }
 
