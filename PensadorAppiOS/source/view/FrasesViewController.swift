@@ -39,6 +39,9 @@ class PhraseViewController: UIViewController {
         let buttonTag = sender.tag
         if let text = phrases[buttonTag].text {
             UIPasteboard.general.string = text
+            showToast(message: "Copied successfully!", color: UIColor(red: 0, green: 0.6667, blue: 0.4431, alpha: 1.0))
+        } else {
+            showToast(message: "Failed to copy, please try again!", color: UIColor(red: 0.8471, green: 0.2706, blue: 0.2706, alpha: 1.0))
         }
     }
     

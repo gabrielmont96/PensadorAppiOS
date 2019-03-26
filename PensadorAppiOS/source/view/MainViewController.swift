@@ -32,9 +32,7 @@ class MainViewController: UIViewController {
                  vc.txtSearch = text
                 navigationController?.pushViewController(vc, animated: true)
             } else {
-                let alert = UIAlertController(title: "CAMPO EM BRANCO", message: "Digite algo para pesquisar!", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Fechar", style: .cancel, handler: nil))
-                self.present(alert, animated: true)
+                showToast(message: "Empty field is not allowed!", color: UIColor(red: 0.8471, green: 0.2706, blue: 0.2706, alpha: 1.0))
 
             }
         }
