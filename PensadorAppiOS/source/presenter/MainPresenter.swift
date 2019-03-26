@@ -6,7 +6,7 @@
 //  Copyright © 2019 Gabriel Silva. All rights reserved.
 //
 
-protocol PensadorDelegate: class {
+protocol ThinkerDelegate: class {
     func onSuccessCategories(category: [Thinker])
     func onFailure(message: String?)
 }
@@ -15,11 +15,11 @@ import Foundation
 
 final class MainPresenter {
     
-    weak var view: PensadorDelegate?
+    weak var view: ThinkerDelegate?
     
     init() {}
     
-    init(_ view: PensadorDelegate) {
+    init(_ view: ThinkerDelegate) {
         self.view = view
     }
     

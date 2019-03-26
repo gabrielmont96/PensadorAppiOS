@@ -12,12 +12,7 @@ class MainViewController: UIViewController {
 
     
     @IBOutlet weak var tfSearch: UITextField!
-    @IBOutlet weak var tableView: UITableView! {
-        didSet {
-//            tableView.delegate = self
-//            tableView.dataSource = self
-        }
-    }
+    @IBOutlet weak var tableView: UITableView!
     var presenter: MainPresenter!
     var category: [Thinker] = []
     var selectedRowIndex: Int?
@@ -62,7 +57,6 @@ extension MainViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let dataIndex = indexPath.row - 1
         let identifier = CategoryCell.identifier
         if tableView.tag == 100 {
             if let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as? CategoryCell {
@@ -80,46 +74,14 @@ extension MainViewController: UITableViewDataSource {
             if let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as? CategoryInsideCell {
                 cell.listCat = category[indexPath.row].listaCat
                 cell.lblListCategory.text = category[indexPath.row].listaCat[indexPath.row].nome
-        
                 return cell
             }
         }
-        
-
-        
         return UITableViewCell()
     }
-    
-//    
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        if tableView.tag == 100 {
-//            return 150
-//        } else {
-//            return 200
-//        }
-//
-//    }
-    
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        if selectedRowIndex != indexPath.row {
-//            if category[indexPath.section].opened {
-//                category[indexPath.section].opened = false
-//                let sections = IndexSet.init(integer: indexPath.section)
-//                tableView.reloadSections(sections, with: .none)
-//            } else {
-//                category[indexPath.section].opened = true
-//                let sections = IndexSet.init(integer: indexPath.section)
-//                tableView.reloadSections(sections, with: .none)
-//                tableView.reloadData()
-//            }
-//        }
-//            self.selectedRowIndex = indexPath.row
-//            self.tableView.beginUpdates()
-//            self.tableView.endUpdates()
-//    }
 }
 
-extension MainViewController: PensadorDelegate {
+extension MainViewController: ThinkerDelegate {
     func onSuccessSearch(category: [Thinker]) {
         return
     }

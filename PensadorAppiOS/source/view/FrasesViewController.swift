@@ -52,7 +52,6 @@ extension PhraseViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        1phraseSelected = phrases[indexPath.row]
         
     }
     
@@ -62,7 +61,6 @@ extension PhraseViewController: UITableViewDataSource {
             presenter.getPhrases(param: txtSearch, page: page+1)
             page = page+1
         }
-//         if indexPath.item == collectionView.numberOfItems(inSection: SectionCase.products.rawValue) - 2
     }
     
     
