@@ -2,18 +2,18 @@
 //  Presenter.swift
 //  PensadorAppiOS
 //
-//  Created by stag on 21/03/19.
+//  Created by Gabriel Silva on 21/03/19.
 //  Copyright © 2019 Gabriel Silva. All rights reserved.
 //
 
 protocol PensadorDelegate: class {
-    func onSuccessCategories(category: [Pensador])
+    func onSuccessCategories(category: [Thinker])
     func onFailure(message: String?)
 }
 
 import Foundation
 
-final class PensadorPresenter {
+final class MainPresenter {
     
     weak var view: PensadorDelegate?
     

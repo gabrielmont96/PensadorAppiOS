@@ -2,7 +2,7 @@
 //  PensadorAppiOSTests.swift
 //  PensadorAppiOSTests
 //
-//  Created by stag on 21/03/19.
+//  Created by Gabriel Silva on 21/03/19.
 //  Copyright © 2019 Gabriel Silva. All rights reserved.
 //
 

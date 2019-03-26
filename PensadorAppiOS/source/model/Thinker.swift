@@ -2,13 +2,13 @@
 //  Pensador.swift
 //  PensadorAppiOS
 //
-//  Created by stag on 21/03/19.
+//  Created by Gabriel Silva on 21/03/19.
 //  Copyright © 2019 Gabriel Silva. All rights reserved.
 //
 
 import ObjectMapper
 
-final class Pensador: Mappable {
+final class Thinker: Mappable {
     var nomePai: String?
     var listaCat: [ListaCat] = []
     var opened: Bool = false

@@ -74,7 +74,7 @@ final class Network {
         
         //MARK: - LOGS
         func log(_ str: Any...){
-            print("\n\n===> CEADB Network: \(str[0])"); if str.count > 1 { print(str[1]) }
+            print("\n\n===> Network: \(str[0])"); if str.count > 1 { print(str[1]) }
         }
         
         guard let request = response.request else { return }
