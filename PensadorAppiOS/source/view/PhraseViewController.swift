@@ -15,6 +15,7 @@ class PhraseViewController: UIViewController {
     var phrases: [Phrase] = []
     var phraseSelected: Phrase?
     var page = 1
+    var titleMainView: String?
     
     @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var tableView: UITableView! {
@@ -32,7 +33,11 @@ class PhraseViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        lblTitle.text = txtSearch
+        if let titleFromMainView = titleMainView {
+            lblTitle.text = titleFromMainView
+        } else {
+            lblTitle.text = txtSearch
+        }
     }
     
     @objc func tapBtnCopy(sender: UIButton) {
@@ -73,15 +78,11 @@ extension PhraseViewController: UITableViewDataSource {
             
             return cell
         }
+        
         return UITableViewCell()
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-    }
-    
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        print(indexPath.row)
         if indexPath.item == tableView.numberOfRows(inSection: indexPath.section) - 3 {
             presenter.getPhrases(param: txtSearch, page: page+1)
             page = page+1

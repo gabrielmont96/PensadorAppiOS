@@ -15,6 +15,7 @@ class PhrasesCell: UITableViewCell {
     @IBOutlet weak var imgHeader: UIImageView!
     @IBOutlet weak var btnCopy: UIButton!
     @IBOutlet weak var btnShare: UIButton!
+    @IBOutlet weak var loading: UIActivityIndicatorView!
     
     
     override func awakeFromNib() {
@@ -31,6 +32,7 @@ class PhrasesCell: UITableViewCell {
     
     func prepareCell(phrases: Phrase) {
         if let urlEncoded = phrases.imageUrl {
+            self.imgHeader.kf.indicatorType = .activity
             self.imgHeader.kf.setImage(with: URL(string: urlEncoded))
         }
     }

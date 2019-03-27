@@ -149,6 +149,10 @@
                                                             </connections>
                                                         </tableViewCell>
                                                     </prototypes>
+                                                    <connections>
+                                                        <outlet property="dataSource" destination="BYZ-38-t0r" id="nzX-Ba-Tph"/>
+                                                        <outlet property="delegate" destination="BYZ-38-t0r" id="aYX-C2-IcV"/>
+                                                    </connections>
                                                 </tableView>
                                             </subviews>
                                             <constraints>
@@ -218,20 +222,20 @@
                                 <color key="separatorColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="sectionIndexBackgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PhrasesCell" rowHeight="207" id="RjZ-E6-xNn" customClass="PhrasesCell" customModule="PensadorAppiOS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="207"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PhrasesCell" rowHeight="175" id="RjZ-E6-xNn" customClass="PhrasesCell" customModule="PensadorAppiOS" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="175"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RjZ-E6-xNn" id="KQb-E5-arw">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="206.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="174.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q8z-dt-0wW">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="206.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="174.5"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9Hg-pK-cDc">
-                                                            <rect key="frame" x="10" y="10" width="355" height="160"/>
+                                                            <rect key="frame" x="10" y="10" width="355" height="128"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="160" id="i1y-If-w4B"/>
+                                                                <constraint firstAttribute="height" constant="128" id="i1y-If-w4B"/>
                                                             </constraints>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -240,7 +244,7 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </imageView>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SHB-dq-PvU">
-                                                            <rect key="frame" x="87.5" y="175" width="100" height="26.5"/>
+                                                            <rect key="frame" x="87.5" y="143" width="100" height="26.5"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="100" id="aca-fo-7gI"/>
                                                             </constraints>
@@ -249,7 +253,7 @@
                                                             </state>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AGS-KO-a0z">
-                                                            <rect key="frame" x="230" y="181" width="15" height="15"/>
+                                                            <rect key="frame" x="230" y="149" width="15" height="15"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="15" id="5d9-ro-Yxd"/>
                                                                 <constraint firstAttribute="width" constant="15" id="roM-ck-76Y"/>
