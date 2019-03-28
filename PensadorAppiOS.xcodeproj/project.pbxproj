@@ -40,7 +40,7 @@
 		73575E55224411E800C932D1 /* Lato-Hairline.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 73575E43224411E800C932D1 /* Lato-Hairline.ttf */; };
 		73575E56224411E800C932D1 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 73575E44224411E800C932D1 /* Lato-Regular.ttf */; };
 		73575E582244141600C932D1 /* Thinker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73575E572244141600C932D1 /* Thinker.swift */; };
-		73575E5A2244147E00C932D1 /* ListaCat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73575E592244147E00C932D1 /* ListaCat.swift */; };
+		73575E5A2244147E00C932D1 /* ListCat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73575E592244147E00C932D1 /* ListCat.swift */; };
 		73575E5C224415C100C932D1 /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73575E5B224415C100C932D1 /* MainPresenter.swift */; };
 		73575E60224518CE00C932D1 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73575E5F224518CE00C932D1 /* CategoryCell.swift */; };
 		73575E67224547DD00C932D1 /* Phrase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73575E66224547DD00C932D1 /* Phrase.swift */; };
@@ -112,7 +112,7 @@
 		73575E43224411E800C932D1 /* Lato-Hairline.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Hairline.ttf"; sourceTree = "<group>"; };
 		73575E44224411E800C932D1 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
 		73575E572244141600C932D1 /* Thinker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thinker.swift; sourceTree = "<group>"; };
-		73575E592244147E00C932D1 /* ListaCat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaCat.swift; sourceTree = "<group>"; };
+		73575E592244147E00C932D1 /* ListCat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCat.swift; sourceTree = "<group>"; };
 		73575E5B224415C100C932D1 /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
 		73575E5F224518CE00C932D1 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		73575E66224547DD00C932D1 /* Phrase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Phrase.swift; sourceTree = "<group>"; };
@@ -249,7 +249,7 @@
 			isa = PBXGroup;
 			children = (
 				73575E572244141600C932D1 /* Thinker.swift */,
-				73575E592244147E00C932D1 /* ListaCat.swift */,
+				73575E592244147E00C932D1 /* ListCat.swift */,
 				73575E66224547DD00C932D1 /* Phrase.swift */,
 				734D065F224941D70029587F /* Author.swift */,
 				734D0661224944010029587F /* List.swift */,
@@ -613,7 +613,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				73575E5A2244147E00C932D1 /* ListaCat.swift in Sources */,
+				73575E5A2244147E00C932D1 /* ListCat.swift in Sources */,
 				73575E5C224415C100C932D1 /* MainPresenter.swift in Sources */,
 				73575E67224547DD00C932D1 /* Phrase.swift in Sources */,
 				734D066422494A4D0029587F /* PhrasesCell.swift in Sources */,

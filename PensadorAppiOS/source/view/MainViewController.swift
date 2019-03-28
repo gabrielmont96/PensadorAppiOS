@@ -10,13 +10,15 @@ import UIKit
 
 class MainViewController: UIViewController {
 
-    
+    @IBOutlet weak var vwLoading: UIView!
+    @IBOutlet weak var activityLoading: UIActivityIndicatorView!
     @IBOutlet weak var tfSearch: UITextField!
     @IBOutlet weak var tableView: UITableView!
     var presenter: MainPresenter!
     var category: [Thinker] = []
     var selectedRowIndex: Int?
     var vwBgSearch: UIView?
+    var alreadyPassed: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +26,8 @@ class MainViewController: UIViewController {
         
         presenter.getCategory()
         tfSearch.delegate = self
+        
+        activityLoading.startAnimating()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -45,10 +49,10 @@ class MainViewController: UIViewController {
     @IBAction func goSearchPage(_ sender: Any) {
         if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FrasesViewController") as? PhraseViewController {
             if let text = tfSearch.text, text != "" {
-                 vc.txtSearch = text
+                 vc.param = text
                 navigationController?.pushViewController(vc, animated: true)
             } else {
-                showToast(message: "Empty field is not allowed!", color: UIColor(red: 0.8471, green: 0.2706, blue: 0.2706, alpha: 1.0))
+                showToast(message: "Empty field is not allowed!", mode: .error)
             }
         }
     }
@@ -91,7 +95,7 @@ extension MainViewController: UITableViewDataSource {
         let identifier = CategoryCell.identifier
         if tableView.tag == 100 {
             if let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as? CategoryCell {
-                cell.listCat = category[indexPath.row].listaCat
+                cell.listCat = category[indexPath.row].listCat
                 cell.setup(category: category[indexPath.row])
                 if category[indexPath.row].opened {
                     cell.imgExpand.image = UIImage(named: "expand_less")
@@ -118,11 +122,22 @@ extension MainViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if category[indexPath.row].opened {
-            return CGFloat((category[indexPath.row].listaCat.count * 44) + 55)
+            return CGFloat((category[indexPath.row].listCat.count * 44) + 55)
         } else {
             return 55
         }
         
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if (!alreadyPassed) {
+            alreadyPassed = true
+            UIView.animate(withDuration: 0.3, delay: 0.1, options: .curveEaseOut, animations: {
+                self.vwLoading.alpha = 0.0
+            }, completion: {(isCompleted) in
+                self.vwLoading.removeFromSuperview()
+            })
+        }
     }
     
 }
@@ -151,6 +166,8 @@ extension MainViewController: Send {
         if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FrasesViewController") as? PhraseViewController {
             var text = urlApi
             text.removeFirst()
+            text.removeLast()
+            vc.param = text
             vc.titleMainView = title
             navigationController?.pushViewController(vc, animated: true)
             

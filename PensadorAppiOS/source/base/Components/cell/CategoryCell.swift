@@ -22,7 +22,7 @@ class CategoryCell: UITableViewCell {
             insideTableView.isScrollEnabled = false
         }
     }
-    var listCat: [ListaCat] = []
+    var listCat: [ListCat] = []
     var delegateSend: Send?
     
     override func awakeFromNib() {
@@ -39,11 +39,9 @@ class CategoryCell: UITableViewCell {
     
     
     func setup(category: Thinker) {
-        
-        lblCategory.text = String(format: "- %@", category.nomePai ?? "")
+        lblCategory.text = String(format: "- %@", category.name ?? "")
         insideTableView.delegate = self
         insideTableView.dataSource = self
-        
     }
 
 }
@@ -56,16 +54,16 @@ extension CategoryCell: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "ListCategoryCell") as? CategoryInsideCell {
-            cell.lblListCategory.text = listCat[indexPath.row].nome
+        let identifier = CategoryInsideCell.identifier
+        if let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as? CategoryInsideCell {
+            cell.lblListCategory.text = listCat[indexPath.row].name
             return cell
         }
-        
         return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let url = listCat[indexPath.row].urlAPI, let name = listCat[indexPath.row].nome {
+        if let url = listCat[indexPath.row].urlAPI, let name = listCat[indexPath.row].name {
             self.delegateSend?.callPhrasesInView(urlApi: url, title: name)
         }
     }

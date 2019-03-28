@@ -8,8 +8,8 @@
 
 import ObjectMapper
 
-final class ListaCat: Mappable {
-    var nome: String?
+final class ListCat: Mappable {
+    var name: String?
     var urlAPI: String?
     var url: String?
     
@@ -18,7 +18,7 @@ final class ListaCat: Mappable {
     required init?(map: Map) {}
     
     func mapping(map: Map) {
-        nome <- map["nome"]
+        name <- map["nome"]
         urlAPI <- map["url"]        
     }
 }

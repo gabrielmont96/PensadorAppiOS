@@ -9,11 +9,10 @@
 import UIKit
 
 class CategoryInsideCell: UITableViewCell {
-
-    @IBOutlet weak var tableView: UITableView!
+    static let identifier = "ListCategoryCell"
     @IBOutlet weak var lblListCategory: UILabel!
     
-    var listCat: [ListaCat] = []
+    var listCat: [ListCat] = []
     
     override func awakeFromNib() {
         super.awakeFromNib()

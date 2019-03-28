@@ -13,7 +13,7 @@ final class ServiceAPI {
     static let sharedInstance = ServiceAPI()
     private init() {}
     
-    func getCategories(success: @escaping (_ pensador: [Thinker]) -> Void,
+    func getCategories(success: @escaping (_ thinker: [Thinker]) -> Void,
                          fail: @escaping (_ error: String?) -> Void) {
         
         let urlString = String(format: "%@/categorias", baseURL)
@@ -27,8 +27,8 @@ final class ServiceAPI {
                     statusCode == 200,
                     let data = response.result.value as? [[String: Any]] {
                     
-                    let retorno: [Thinker] = data.compactMap({ Thinker(JSON: $0) })
-                    success(retorno)
+                    let dataJson: [Thinker] = data.compactMap({ Thinker(JSON: $0) })
+                    success(dataJson)
                 } else {
                     fail("Request Failed: \(urlString)")
                 }
@@ -39,7 +39,7 @@ final class ServiceAPI {
         }
     }
     
-    func getSearchResult(param: String, page: Int, success: @escaping (_ pensador: List) -> Void,
+    func getSearchResult(param: String, page: Int, success: @escaping (_ thinker: List) -> Void,
                        fail: @escaping (_ error: String?) -> Void) {
         
         let urlString = String(format: "%@/frases/%@/%@", baseURL, param, String(page))
@@ -53,8 +53,8 @@ final class ServiceAPI {
                     statusCode == 200,
                     let data = response.result.value as? [String: Any] {
                     
-                    if let retorno = List(JSON: data) {
-                        success(retorno)
+                    if let dataJson = List(JSON: data) {
+                        success(dataJson)
                     }
                 } else {
                     fail("Request Failed: \(urlString)")

@@ -9,8 +9,8 @@
 import ObjectMapper
 
 final class Thinker: Mappable {
-    var nomePai: String?
-    var listaCat: [ListaCat] = []
+    var name: String?
+    var listCat: [ListCat] = []
     var opened: Bool = false
 
     init() {}
@@ -18,8 +18,8 @@ final class Thinker: Mappable {
     required init?(map: Map) {}
     
     func mapping(map: Map) {
-        nomePai <- map["nomePai"]
-        listaCat <- map["listaCat"]
+        name <- map["nomePai"]
+        listCat <- map["listaCat"]
 
     }
 }

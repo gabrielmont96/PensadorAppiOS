@@ -11,12 +11,15 @@ import UIKit
 class PhraseViewController: UIViewController {
 
     var presenter: PhrasePresenter!
-    var txtSearch = ""
+    var param = ""
     var phrases: [Phrase] = []
     var phraseSelected: Phrase?
     var page = 1
     var titleMainView: String?
+    var alreadyPassed: Bool = false
     
+    @IBOutlet weak var vwLoading: UIView!
+    @IBOutlet weak var activityLoading: UIActivityIndicatorView!
     @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var tableView: UITableView! {
         didSet {
@@ -28,7 +31,8 @@ class PhraseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter = PhrasePresenter(self)
-        presenter.getPhrases(param: txtSearch, page: page)
+        presenter.getPhrases(param: param, page: page)
+        activityLoading.startAnimating()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -36,7 +40,7 @@ class PhraseViewController: UIViewController {
         if let titleFromMainView = titleMainView {
             lblTitle.text = titleFromMainView
         } else {
-            lblTitle.text = txtSearch
+            lblTitle.text = param
         }
     }
     
@@ -44,9 +48,9 @@ class PhraseViewController: UIViewController {
         let buttonTag = sender.tag
         if let text = phrases[buttonTag].text {
             UIPasteboard.general.string = text
-            showToast(message: "Copied successfully!", color: UIColor(red: 0, green: 0.6667, blue: 0.4431, alpha: 1.0))
+            showToast(message: "Copied successfully!", mode: .success )
         } else {
-            showToast(message: "Failed to copy, please try again!", color: UIColor(red: 0.8471, green: 0.2706, blue: 0.2706, alpha: 1.0))
+            showToast(message: "Failed to copy, please try again!", mode: .error)
         }
     }
     
@@ -83,8 +87,17 @@ extension PhraseViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if (!alreadyPassed) {
+            alreadyPassed = true
+            UIView.animate(withDuration: 0.3, delay: 0.1, options: .curveEaseOut, animations: {
+                self.vwLoading.alpha = 0.0
+            }, completion: {(isCompleted) in
+                self.vwLoading.removeFromSuperview()
+            })
+        }
+        
         if indexPath.item == tableView.numberOfRows(inSection: indexPath.section) - 3 {
-            presenter.getPhrases(param: txtSearch, page: page+1)
+            presenter.getPhrases(param: param, page: page+1)
             page = page+1
         }
     }
