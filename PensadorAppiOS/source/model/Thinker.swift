@@ -6,20 +6,13 @@
 //  Copyright © 2019 Gabriel Silva. All rights reserved.
 //
 
-import ObjectMapper
-
-final class Thinker: Mappable {
+struct Thinker: Codable {
     var name: String?
     var listCat: [ListCat] = []
     var opened: Bool = false
 
-    init() {}
-    
-    required init?(map: Map) {}
-    
-    func mapping(map: Map) {
-        name <- map["nomePai"]
-        listCat <- map["listaCat"]
-
+    enum CodingKeys: String, CodingKey {
+        case name = "nomePai"
+        case listCat = "listaCat"
     }
 }

@@ -6,38 +6,36 @@
 //  Copyright © 2019 Gabriel Silva. All rights reserved.
 //
 
-import ObjectMapper
 import Alamofire
 
 final class ServiceAPI {
     static let sharedInstance = ServiceAPI()
     private init() {}
     
-    func getCategories(success: @escaping (_ thinker: [Thinker]) -> Void,
+    func getCategories(success: @escaping (_ thinker: [Thinker]?) -> Void,
                          fail: @escaping (_ error: String?) -> Void) {
         
-        let urlString = String(format: "%@/categorias", baseURL)
+        let urlString = baseURL + "/categorias"
         
         guard let url = URL(string: urlString) else { return }
         
-        Network.request(url) { response in
+        
+        Alamofire.request(url).responseJSON { (response) in
             switch response.result {
             case .success:
-                if let statusCode = response.response?.statusCode,
-                    statusCode == 200,
-                    let data = response.result.value as? [[String: Any]] {
-                    
-                    let dataJson: [Thinker] = data.compactMap({ Thinker(JSON: $0) })
+                if let data = response.data,
+                    let dataJson = try? JSONDecoder().decode([Thinker].self, from: data),
+                    let statusCode = response.response?.statusCode,
+                    statusCode == 200 {
                     success(dataJson)
                 } else {
                     fail("Request Failed: \(urlString)")
                 }
-                
-            case .failure(let error):
-                fail(error.localizedDescription)
+            case .failure:
+                fail("Request Failed: \(urlString)")
             }
         }
-    }
+}
     
     func getSearchResult(param: String, page: Int, success: @escaping (_ thinker: List) -> Void,
                        fail: @escaping (_ error: String?) -> Void) {
@@ -46,18 +44,16 @@ final class ServiceAPI {
         
         guard let url = URL(string: urlString) else { return }
         
-        Network.request(url) { response in
+        Alamofire.request(url).responseJSON { response in
             switch response.result {
             case .success:
-                if let statusCode = response.response?.statusCode,
-                    statusCode == 200,
-                    let data = response.result.value as? [String: Any] {
-                    
-                    if let dataJson = List(JSON: data) {
+                if let data = response.data,
+                    let dataJson = try? JSONDecoder().decode(List.self, from: data),
+                    let statusCode = response.response?.statusCode,
+                    statusCode == 200 {
                         success(dataJson)
-                    }
-                } else {
-                    fail("Request Failed: \(urlString)")
+                    } else {
+                        fail("Request Failed: \(urlString)")
                 }
                 
             case .failure(let error):

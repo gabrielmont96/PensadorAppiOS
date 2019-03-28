@@ -6,15 +6,10 @@
 //  Copyright © 2019 Gabriel Silva. All rights reserved.
 //
 
-import ObjectMapper
-
-final class List: Mappable {
-    
+struct List: Codable {
     var list: [Phrase] = []
-    
-    required init?(map: Map) {}
-    
-    func mapping(map: Map) {
-        list <- map["lista"]
+
+    enum CodingKeys: String, CodingKey {
+        case list = "lista"
     }
 }

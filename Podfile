@@ -6,7 +6,6 @@ target 'PensadorAppiOS' do
   use_frameworks!
 
   # Pods for PensadorAppiOS
-  pod 'ObjectMapper', '~> 3.3.0'
   pod 'Alamofire', '~> 4.3'
   pod 'Kingfisher', '~> 4.6.1'
   

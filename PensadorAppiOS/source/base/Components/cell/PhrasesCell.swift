@@ -12,14 +12,14 @@ import Kingfisher
 class PhrasesCell: UITableViewCell {
     static let identifier = "PhrasesCell"
 
-    @IBOutlet weak var imgHeader: UIImageView!
-    @IBOutlet weak var btnCopy: UIButton!
-    @IBOutlet weak var btnShare: UIButton!    
+    @IBOutlet weak var imgHeader: UIImageView?
+    @IBOutlet weak var btnCopy: UIButton?
+    @IBOutlet weak var btnShare: UIButton?
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        self.imgHeader.layer.masksToBounds = true
+        self.imgHeader?.layer.masksToBounds = true
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -30,8 +30,8 @@ class PhrasesCell: UITableViewCell {
     
     func prepareCell(phrases: Phrase) {
         if let urlEncoded = phrases.imageUrl {
-            self.imgHeader.kf.indicatorType = .activity
-            self.imgHeader.kf.setImage(with: URL(string: urlEncoded))
+            self.imgHeader?.kf.indicatorType = .activity
+            self.imgHeader?.kf.setImage(with: URL(string: urlEncoded))
         }
     }
 

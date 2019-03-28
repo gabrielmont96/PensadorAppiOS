@@ -75,10 +75,10 @@ extension PhraseViewController: UITableViewDataSource {
         let identifier = PhrasesCell.identifier
         if let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as? PhrasesCell {
             cell.prepareCell(phrases: phrases[indexPath.row])
-            cell.btnCopy.addTarget(self, action: #selector(tapBtnCopy(sender:)), for: .touchUpInside)
-            cell.btnCopy.tag = indexPath.row
-            cell.btnShare.addTarget(self, action: #selector(tapBtnShare(sender:)), for: .touchUpInside)
-            cell.btnShare.tag = indexPath.row
+            cell.btnCopy?.addTarget(self, action: #selector(tapBtnCopy(sender:)), for: .touchUpInside)
+            cell.btnCopy?.tag = indexPath.row
+            cell.btnShare?.addTarget(self, action: #selector(tapBtnShare(sender:)), for: .touchUpInside)
+            cell.btnShare?.tag = indexPath.row
             
             return cell
         }
@@ -99,6 +99,7 @@ extension PhraseViewController: UITableViewDataSource {
         if indexPath.item == tableView.numberOfRows(inSection: indexPath.section) - 3 {
             presenter.getPhrases(param: param, page: page+1)
             page = page+1
+            debugPrint(page)
         }
     }
 

@@ -6,22 +6,17 @@
 //  Copyright © 2019 Gabriel Silva. All rights reserved.
 //
 
-import ObjectMapper
-
-final class Phrase: Mappable {
+struct Phrase: Codable {
     var text: String?
     var sharing: String?
     var imageUrl: String?
     var author: Author?
     
-    init() {}
-    
-    required init?(map: Map) {}
-    
-    func mapping(map: Map) {
-        text <- map["texto"]
-        sharing <- map["compartilhamentos"]
-        imageUrl <- map["imagemUrl"]
-        author <- map["autor"]
+    enum CodingKeys: String, CodingKey {
+        case text = "texto"
+        case sharing = "compartilhamentos"
+        case imageUrl = "imagemUrl"
+        case author = "autor"
     }
+    
 }

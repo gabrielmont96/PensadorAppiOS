@@ -10,7 +10,7 @@ import UIKit
 
 class CategoryInsideCell: UITableViewCell {
     static let identifier = "ListCategoryCell"
-    @IBOutlet weak var lblListCategory: UILabel!
+    @IBOutlet weak var lblListCategory: UILabel?
     
     var listCat: [ListCat] = []
     

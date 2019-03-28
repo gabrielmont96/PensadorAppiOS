@@ -56,7 +56,7 @@ extension CategoryCell: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let identifier = CategoryInsideCell.identifier
         if let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as? CategoryInsideCell {
-            cell.lblListCategory.text = listCat[indexPath.row].name
+            cell.lblListCategory?.text = listCat[indexPath.row].name
             return cell
         }
         return UITableViewCell()
@@ -67,4 +67,5 @@ extension CategoryCell: UITableViewDataSource {
             self.delegateSend?.callPhrasesInView(urlApi: url, title: name)
         }
     }
+    
 }
