@@ -18,13 +18,13 @@ class PhraseViewController: UIViewController {
     var titleMainView: String?
     var alreadyPassed: Bool = false
     
-    @IBOutlet weak var vwLoading: UIView!
-    @IBOutlet weak var activityLoading: UIActivityIndicatorView!
-    @IBOutlet weak var lblTitle: UILabel!
-    @IBOutlet weak var tableView: UITableView! {
+    @IBOutlet weak var vwLoading: UIView?
+    @IBOutlet weak var activityLoading: UIActivityIndicatorView?
+    @IBOutlet weak var lblTitle: UILabel?
+    @IBOutlet weak var tableView: UITableView? {
         didSet {
-            tableView.delegate = self
-            tableView.dataSource = self
+            tableView?.delegate = self
+            tableView?.dataSource = self
         }
     }
     
@@ -32,15 +32,15 @@ class PhraseViewController: UIViewController {
         super.viewDidLoad()
         presenter = PhrasePresenter(self)
         presenter.getPhrases(param: param, page: page)
-        activityLoading.startAnimating()
+        activityLoading?.startAnimating()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if let titleFromMainView = titleMainView {
-            lblTitle.text = titleFromMainView
+            lblTitle?.text = titleFromMainView
         } else {
-            lblTitle.text = param
+            lblTitle?.text = param
         }
     }
     
@@ -90,9 +90,9 @@ extension PhraseViewController: UITableViewDataSource {
         if (!alreadyPassed) {
             alreadyPassed = true
             UIView.animate(withDuration: 0.3, delay: 0.1, options: .curveEaseOut, animations: {
-                self.vwLoading.alpha = 0.0
+                self.vwLoading?.alpha = 0.0
             }, completion: {(isCompleted) in
-                self.vwLoading.removeFromSuperview()
+                self.vwLoading?.removeFromSuperview()
             })
         }
         
@@ -112,13 +112,13 @@ extension PhraseViewController: PhraseDelegate {
         for item in phrases.list {
             self.phrases.append(item)
         }
-        tableView.reloadData()
+        tableView?.reloadData()
     }
     
     func onFailure(message: String?) {
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1)) {
             self.showToast(message: "Failed to request", mode: .error)
-            self.vwLoading.removeFromSuperview()
+            self.vwLoading?.removeFromSuperview()
         }
         print(message)
     }

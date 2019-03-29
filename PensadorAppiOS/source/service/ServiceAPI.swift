@@ -19,6 +19,7 @@ final class ServiceAPI {
         
         guard let url = URL(string: urlString) else { return }
         
+        print("\n\n===> Network: \(url)")
         
         Alamofire.request(url).responseJSON { (response) in
             switch response.result {
@@ -43,6 +44,9 @@ final class ServiceAPI {
         let urlString = String(format: "%@/frases/%@/%@", baseURL, param, String(page))
         
         guard let url = URL(string: urlString) else { return }
+        
+        print("\n\n===> Network: \(url)")
+
         
         Alamofire.request(url).responseJSON { response in
             switch response.result {

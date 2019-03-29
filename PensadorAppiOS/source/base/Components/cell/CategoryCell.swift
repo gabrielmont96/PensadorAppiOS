@@ -15,11 +15,11 @@ protocol Send {
 class CategoryCell: UITableViewCell {
     static let identifier = "CategoryCell"
 
-    @IBOutlet weak var imgExpand: UIImageView!
-    @IBOutlet weak var lblCategory: UILabel!
-    @IBOutlet weak var insideTableView: UITableView! {
+    @IBOutlet weak var imgExpand: UIImageView?
+    @IBOutlet weak var lblCategory: UILabel?
+    @IBOutlet weak var insideTableView: UITableView? {
         didSet {
-            insideTableView.isScrollEnabled = false
+            insideTableView?.isScrollEnabled = false
         }
     }
     var listCat: [ListCat] = []
@@ -39,9 +39,9 @@ class CategoryCell: UITableViewCell {
     
     
     func setup(category: Thinker) {
-        lblCategory.text = String(format: "- %@", category.name ?? "")
-        insideTableView.delegate = self
-        insideTableView.dataSource = self
+        lblCategory?.text = String(format: "- %@", category.name ?? "")
+        insideTableView?.delegate = self
+        insideTableView?.dataSource = self
     }
 
 }
