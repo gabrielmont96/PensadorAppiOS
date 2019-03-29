@@ -4,10 +4,10 @@
 Application created from PensadorAPI - https://github.com/LuccaPrado/PensadorApi
 
 # TODO
-  - Create project
-  - Create Storyboard and Viewcontrollers
-  - Create TableView and configure
-  - Call the API
+  - ~~Create project
+  - ~~Create Storyboard and Viewcontrollers
+  - ~~Create TableView and configure
+  - ~~Call the API
 
 # New Features!
 
