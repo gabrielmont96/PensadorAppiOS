@@ -10,10 +10,10 @@ import UIKit
 
 class MainViewController: UIViewController {
 
-    @IBOutlet weak var vwLoading: UIView!
-    @IBOutlet weak var activityLoading: UIActivityIndicatorView!
-    @IBOutlet weak var tfSearch: UITextField!
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var vwLoading: UIView?
+    @IBOutlet weak var activityLoading: UIActivityIndicatorView?
+    @IBOutlet weak var tfSearch: UITextField?
+    @IBOutlet weak var tableView: UITableView?
     var presenter: MainPresenter!
     var category: [Thinker] = []
     var selectedRowIndex: Int?
@@ -25,9 +25,9 @@ class MainViewController: UIViewController {
         presenter = MainPresenter(self)
         
         presenter.getCategory()
-        tfSearch.delegate = self
+        tfSearch?.delegate = self
         
-        activityLoading.startAnimating()
+        activityLoading?.startAnimating()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -48,7 +48,7 @@ class MainViewController: UIViewController {
     
     @IBAction func goSearchPage(_ sender: Any) {
         if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FrasesViewController") as? PhraseViewController {
-            if let text = tfSearch.text, text != "" {
+            if let text = tfSearch?.text, text != "" {
                  vc.param = text
                 navigationController?.pushViewController(vc, animated: true)
             } else {
@@ -73,7 +73,7 @@ class MainViewController: UIViewController {
             self.vwBgSearch?.alpha = 0
         }
         view.endEditing(true)
-        self.tfSearch.text = ""
+        self.tfSearch?.text = ""
     }
 }
 
@@ -98,12 +98,12 @@ extension MainViewController: UITableViewDataSource {
                 cell.listCat = category[indexPath.row].listCat
                 cell.setup(category: category[indexPath.row])
                 if category[indexPath.row].opened {
-                    cell.imgExpand.image = UIImage(named: "expand_less")
+                    cell.imgExpand?.image = UIImage(named: "expand_less")
                 } else {
-                    cell.imgExpand.image = UIImage(named: "expand_more")
+                    cell.imgExpand?.image = UIImage(named: "expand_more")
                 }
                 cell.delegateSend = self
-                cell.insideTableView.reloadData()
+                cell.insideTableView?.reloadData()
                 
                 return cell
             }
@@ -133,9 +133,9 @@ extension MainViewController: UITableViewDataSource {
         if (!alreadyPassed) {
             alreadyPassed = true
             UIView.animate(withDuration: 0.3, delay: 0.1, options: .curveEaseOut, animations: {
-                self.vwLoading.alpha = 0.0
+                self.vwLoading?.alpha = 0.0
             }, completion: {(isCompleted) in
-                self.vwLoading.removeFromSuperview()
+                self.vwLoading?.removeFromSuperview()
             })
         }
     }
@@ -150,14 +150,14 @@ extension MainViewController: ThinkerDelegate {
     func onSuccessCategories(category: [Thinker]) {
         self.category = category
         print ("success")
-        self.tableView.reloadData()
+        self.tableView?.reloadData()
     }
     
     func onFailure(message: String?) {
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1)) {
-            self.showToast(message: "Request failed", mode: .error)
-            self.vwLoading.removeFromSuperview()
-            self.tableView.isHidden = true
+            self.showToast(message: "Failed to request", mode: .error)
+            self.vwLoading?.removeFromSuperview()
+            self.tableView?.isHidden = true
         }
         print ("error")
     }
