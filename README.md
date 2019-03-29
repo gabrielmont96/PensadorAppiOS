@@ -3,7 +3,7 @@
 
 Application created from PensadorAPI - https://github.com/LuccaPrado/PensadorApi
 
-TODO
+# TODO
   - Create project
   - Create Storyboard and Viewcontrollers
   - Create TableView and configure
@@ -11,8 +11,7 @@ TODO
 
 # New Features!
 
-  - Import a HTML file and watch it magically convert to Markdown
-  - Drag and drop images (requires your Dropbox account be linked)
+  - Implement new functions for the App!
 
 
 You can also:
