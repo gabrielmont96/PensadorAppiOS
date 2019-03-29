@@ -40,8 +40,8 @@ final class ServiceAPI {
     
     func getSearchResult(param: String, page: Int, success: @escaping (_ thinker: List) -> Void,
                        fail: @escaping (_ error: String?) -> Void) {
-        
-        let urlString = String(format: "%@/frases/%@/%@", baseURL, param, String(page))
+        let paramFormatted = param.replacingOccurrences(of: " ", with: "_")
+        let urlString = String(format: "%@/frases/%@/%@", baseURL, paramFormatted, String(page))
         
         guard let url = URL(string: urlString) else { return }
         
