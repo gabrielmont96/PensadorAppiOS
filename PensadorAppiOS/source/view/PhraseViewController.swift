@@ -119,6 +119,7 @@ extension PhraseViewController: PhraseDelegate {
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1)) {
             self.showToast(message: "Failed to request", mode: .error)
             self.vwLoading?.removeFromSuperview()
+            self.tableView?.isHidden = true
         }
         print(message)
     }
