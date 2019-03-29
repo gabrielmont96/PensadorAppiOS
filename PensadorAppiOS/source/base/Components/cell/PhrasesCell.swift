@@ -20,12 +20,22 @@ class PhrasesCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         self.imgHeader.layer.masksToBounds = true
+        self.imgHeader?.layer.masksToBounds = true
+        setupBtnCopy()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func setupBtnCopy() {
+        btnCopy?.layer.masksToBounds = true
+        btnCopy?.layer.borderColor = UIColor.white.cgColor
+        btnCopy?.layer.cornerRadius = 10
+        btnCopy?.layer.borderWidth = 2
+        btnCopy?.backgroundColor = UIColor.black
     }
     
     func prepareCell(phrases: Phrase) {
