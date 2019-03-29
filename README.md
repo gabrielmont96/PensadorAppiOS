@@ -1,7 +1,7 @@
 # PensadoriOS App
 
 
-Aplicativo criado a partir da PensadorApi - https://github.com/LuccaPrado/PensadorApi
+Application created from PensadorAPI - https://github.com/LuccaPrado/PensadorApi
 
 TODO
   - Create project
