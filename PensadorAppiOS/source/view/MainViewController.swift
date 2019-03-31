@@ -49,7 +49,8 @@ class MainViewController: UIViewController {
     @IBAction func goSearchPage(_ sender: Any) {
         if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FrasesViewController") as? PhraseViewController {
             if let text = tfSearch?.text, text != "" {
-                 vc.param = text
+                vc.param = text
+                vc.fromSearch = true
                 navigationController?.pushViewController(vc, animated: true)
             } else {
                 showToast(message: "Empty field is not allowed!", mode: .error)
@@ -174,6 +175,7 @@ extension MainViewController: Send {
             text.removeLast()
             vc.param = text
             vc.titleMainView = title
+            vc.fromCategory = true
             navigationController?.pushViewController(vc, animated: true)
             
         }
