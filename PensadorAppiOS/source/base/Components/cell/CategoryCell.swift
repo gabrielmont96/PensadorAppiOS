@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol Send {
+protocol CallPhrasesDelegate {
     func callPhrasesInView(urlApi: String, title: String)
 }
 
@@ -23,7 +23,7 @@ class CategoryCell: UITableViewCell {
         }
     }
     var listCat: [ListCat] = []
-    var delegateSend: Send?
+    var delegateSend: CallPhrasesDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -17,6 +17,8 @@ class PhraseViewController: UIViewController {
     var page = 1
     var titleMainView: String?
     var alreadyPassed: Bool = false
+    var fromCategory = false
+    var fromSearch = false
     
     @IBOutlet weak var vwLoading: UIView?
     @IBOutlet weak var activityLoading: UIActivityIndicatorView?
@@ -31,8 +33,16 @@ class PhraseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter = PhrasePresenter(self)
-        presenter.getPhrases(param: param, page: page)
+        if fromCategory {
+            presenter.getPrasesCategoryResult(param: param, page: page)
+        }
+        
+        if fromSearch {
+            presenter.getSearchResult(param: param, page: page)
+        }
+        
         activityLoading?.startAnimating()
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -97,9 +107,13 @@ extension PhraseViewController: UITableViewDataSource {
         }
         
         if indexPath.item == tableView.numberOfRows(inSection: indexPath.section) - 3 {
-            presenter.getPhrases(param: param, page: page+1)
+            if fromCategory {
+                presenter.getPrasesCategoryResult(param: param, page: page+1)
+            }
+            if fromSearch {
+                presenter.getSearchResult(param: param, page: page+1)
+            }
             page = page+1
-            debugPrint(page)
         }
     }
 

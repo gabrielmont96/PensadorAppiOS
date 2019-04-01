@@ -38,10 +38,9 @@ final class ServiceAPI {
         }
 }
     
-    func getSearchResult(param: String, page: Int, success: @escaping (_ thinker: List) -> Void,
+    func getCategoryResult(param: String, page: Int, success: @escaping (_ thinker: List) -> Void,
                        fail: @escaping (_ error: String?) -> Void) {
-        let paramFormatted = param.replacingOccurrences(of: " ", with: "_")
-        let urlString = String(format: "%@/frases/%@/%@", baseURL, paramFormatted, String(page))
+        let urlString = String(format: "%@/frases/%@/%@", baseURL, param, String(page))
         
         guard let url = URL(string: urlString) else { return }
         
@@ -58,6 +57,34 @@ final class ServiceAPI {
                         success(dataJson)
                     } else {
                         fail("Request Failed: \(urlString)")
+                }
+                
+            case .failure(let error):
+                fail(error.localizedDescription)
+            }
+        }
+    }
+    
+    func getSearchResult(param: String, page: Int, success: @escaping (_ thinker: List) -> Void,
+                           fail: @escaping (_ error: String?) -> Void) {
+        let paramFormatted = param.replacingOccurrences(of: " ", with: "%20")
+        let urlString = String(format: "%@/frases/buscar/%@/%@", baseURL, paramFormatted, String(page))
+        
+        guard let url = URL(string: urlString) else { return }
+        
+        print("\n\n===> Network: \(url)")
+        
+        
+        Alamofire.request(url).responseJSON { response in
+            switch response.result {
+            case .success:
+                if let data = response.data,
+                    let dataJson = try? JSONDecoder().decode(List.self, from: data),
+                    let statusCode = response.response?.statusCode,
+                    statusCode == 200 {
+                    success(dataJson)
+                } else {
+                    fail("Request Failed: \(urlString)")
                 }
                 
             case .failure(let error):
