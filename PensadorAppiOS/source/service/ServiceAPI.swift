@@ -12,7 +12,7 @@ final class ServiceAPI {
     static let sharedInstance = ServiceAPI()
     private init() {}
     
-    func getCategories(success: @escaping (_ thinker: [Thinker]?) -> Void,
+    func getCategories(success: @escaping (_ thinker: [Thinker]) -> Void,
                          fail: @escaping (_ error: String?) -> Void) {
         
         let urlString = baseURL + "/categorias"

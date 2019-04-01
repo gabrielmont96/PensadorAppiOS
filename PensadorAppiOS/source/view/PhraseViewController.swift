@@ -10,7 +10,7 @@ import UIKit
 
 class PhraseViewController: UIViewController {
 
-    var presenter: PhrasePresenter!
+    var presenter: PhrasePresenter?
     var param = ""
     var phrases: [Phrase] = []
     var phraseSelected: Phrase?
@@ -34,11 +34,11 @@ class PhraseViewController: UIViewController {
         super.viewDidLoad()
         presenter = PhrasePresenter(self)
         if fromCategory {
-            presenter.getPrasesCategoryResult(param: param, page: page)
+            presenter?.getPrasesCategoryResult(param: param, page: page)
         }
         
         if fromSearch {
-            presenter.getSearchResult(param: param, page: page)
+            presenter?.getSearchResult(param: param, page: page)
         }
         
         activityLoading?.startAnimating()
@@ -108,10 +108,10 @@ extension PhraseViewController: UITableViewDataSource {
         
         if indexPath.item == tableView.numberOfRows(inSection: indexPath.section) - 3 {
             if fromCategory {
-                presenter.getPrasesCategoryResult(param: param, page: page+1)
+                presenter?.getPrasesCategoryResult(param: param, page: page+1)
             }
             if fromSearch {
-                presenter.getSearchResult(param: param, page: page+1)
+                presenter?.getSearchResult(param: param, page: page+1)
             }
             page = page+1
         }

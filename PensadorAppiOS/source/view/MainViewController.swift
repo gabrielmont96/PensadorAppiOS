@@ -14,7 +14,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var activityLoading: UIActivityIndicatorView?
     @IBOutlet weak var tfSearch: UITextField?
     @IBOutlet weak var tableView: UITableView?
-    var presenter: MainPresenter!
+    var presenter: MainPresenter?
     var category: [Thinker] = []
     var selectedRowIndex: Int?
     var vwBgSearch: UIView?
@@ -24,7 +24,7 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         presenter = MainPresenter(self)
         
-        presenter.getCategory()
+        presenter?.getCategory()
         tfSearch?.delegate = self
         
         activityLoading?.startAnimating()
@@ -38,7 +38,7 @@ class MainViewController: UIViewController {
         vwBgSearch?.isUserInteractionEnabled = true
         vwBgSearch?.addGestureRecognizer(tap)
         vwBgSearch?.alpha = 0
-        view.addSubview(vwBgSearch!)
+        view.addSubview(vwBgSearch ?? UIView())
     }
     
     override func viewWillDisappear(_ animated: Bool) {

@@ -25,7 +25,7 @@ final class MainPresenter {
     
     func getCategory() {
        ServiceAPI.sharedInstance.getCategories( success: { [weak self] category in
-            self?.view?.onSuccessCategories(category: category!)
+            self?.view?.onSuccessCategories(category: category)
         }, fail: { error in
             self.view?.onFailure(message: error)
         })
