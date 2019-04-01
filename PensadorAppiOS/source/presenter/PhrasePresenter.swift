@@ -26,16 +26,16 @@ final class PhrasePresenter {
     }
     
     func getPrasesCategoryResult(param: String, page: Int) {
-        ServiceAPI.sharedInstance.getCategoryResult(param: param, page: page, success: { phrases in
-            self.view?.onSuccessSearch(phrases: phrases)
+        ServiceAPI.sharedInstance.getCategoryResult(param: param, page: page, success: { [weak self] phrases in
+            self?.view?.onSuccessSearch(phrases: phrases)
         }, fail: { error in
             self.view?.onFailure(message: error)
         })
     }
     
     func getSearchResult(param: String, page: Int) {
-        ServiceAPI.sharedInstance.getSearchResult(param: param, page: page, success: { phrases in
-            self.view?.onSuccessSearch(phrases: phrases)
+        ServiceAPI.sharedInstance.getSearchResult(param: param, page: page, success: { [weak self] phrases in
+            self?.view?.onSuccessSearch(phrases: phrases)
         }, fail: { error in
             self.view?.onFailure(message: error)
         })
