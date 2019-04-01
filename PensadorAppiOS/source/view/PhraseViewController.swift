@@ -10,7 +10,7 @@ import UIKit
 
 class PhraseViewController: UIViewController {
 
-    var presenter: PhrasePresenter!
+    var presenter: PhrasePresenter?
     var param = ""
     var phrases: [Phrase] = []
     var phraseSelected: Phrase?
@@ -35,11 +35,11 @@ class PhraseViewController: UIViewController {
         presenter = PhrasePresenter(self)
         
         if fromCategory {
-            presenter.getPrasesCategoryResult(param: param, page: page)
+            presenter?.getPrasesCategoryResult(param: param, page: page)
         }
         
         if fromSearch {
-            presenter.getSearchResult(param: param, page: page)
+            presenter?.getSearchResult(param: param, page: page)
         }
         
         activityLoading?.startAnimating()
@@ -56,7 +56,7 @@ class PhraseViewController: UIViewController {
     
     @objc func tapBtnCopy(sender: UIButton) {
         let buttonTag = sender.tag
-        if let text = phrases[buttonTag].text {
+        if let text = phrases[buttonTag].text, text != "" {
             UIPasteboard.general.string = text
             showToast(message: "Copied successfully!", mode: .success )
         } else {
@@ -85,10 +85,10 @@ extension PhraseViewController: UITableViewDataSource {
         let identifier = PhrasesCell.identifier
         if let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as? PhrasesCell {
             cell.prepareCell(phrases: phrases[indexPath.row])
-            cell.btnCopy.addTarget(self, action: #selector(tapBtnCopy(sender:)), for: .touchUpInside)
-            cell.btnCopy.tag = indexPath.row
-            cell.btnShare.addTarget(self, action: #selector(tapBtnShare(sender:)), for: .touchUpInside)
-            cell.btnShare.tag = indexPath.row
+            cell.btnCopy?.addTarget(self, action: #selector(tapBtnCopy(sender:)), for: .touchUpInside)
+            cell.btnCopy?.tag = indexPath.row
+            cell.btnShare?.addTarget(self, action: #selector(tapBtnShare(sender:)), for: .touchUpInside)
+            cell.btnShare?.tag = indexPath.row
             
             return cell
         }
@@ -108,10 +108,10 @@ extension PhraseViewController: UITableViewDataSource {
         
         if indexPath.item == tableView.numberOfRows(inSection: indexPath.section) - 3 {
             if fromCategory {
-                presenter.getPrasesCategoryResult(param: param, page: page+1)
+                presenter?.getPrasesCategoryResult(param: param, page: page+1)
             }
             if fromSearch {
-                presenter.getSearchResult(param: param, page: page+1)
+                presenter?.getSearchResult(param: param, page: page+1)
             }
             
             page = page+1

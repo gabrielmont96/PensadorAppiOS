@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol Send {
+protocol CallPhrasesDelegate {
     func callPhrasesInView(urlApi: String, title: String)
 }
 
@@ -23,7 +23,7 @@ class CategoryCell: UITableViewCell {
         }
     }
     var listCat: [ListCat] = []
-    var delegateSend: Send?
+    var delegateSend: CallPhrasesDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -56,7 +56,7 @@ extension CategoryCell: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let identifier = CategoryInsideCell.identifier
         if let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as? CategoryInsideCell {
-            cell.lblListCategory.text = listCat[indexPath.row].name
+            cell.lblListCategory?.text = listCat[indexPath.row].name
             return cell
         }
         return UITableViewCell()
