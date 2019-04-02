@@ -46,6 +46,7 @@
 		73575E67224547DD00C932D1 /* Phrase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73575E66224547DD00C932D1 /* Phrase.swift */; };
 		73575E6B22454A7700C932D1 /* PhraseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73575E6A22454A7700C932D1 /* PhraseViewController.swift */; };
 		73575E6D224565EE00C932D1 /* CategoryInsideCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73575E6C224565EE00C932D1 /* CategoryInsideCell.swift */; };
+		73D4879E225392AE00226404 /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 73D4879D225392AE00226404 /* loading.json */; };
 		BE18EFA08A6224DEBCF24B47 /* Pods_PensadorAppiOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D07C3256B6F4581C1E07DE5 /* Pods_PensadorAppiOSTests.framework */; };
 		D51EF00B4EFEA8D43F0C074B /* Pods_PensadorAppiOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5247CA952E0F51E42AA7992 /* Pods_PensadorAppiOSUITests.framework */; };
 		EAAE6C8B3A34950669ECE0D4 /* Pods_PensadorAppiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39BAB8F4B57135C7055C57FB /* Pods_PensadorAppiOS.framework */; };
@@ -118,6 +119,7 @@
 		73575E66224547DD00C932D1 /* Phrase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Phrase.swift; sourceTree = "<group>"; };
 		73575E6A22454A7700C932D1 /* PhraseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhraseViewController.swift; sourceTree = "<group>"; };
 		73575E6C224565EE00C932D1 /* CategoryInsideCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryInsideCell.swift; sourceTree = "<group>"; };
+		73D4879D225392AE00226404 /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
 		7C07580A290D417E7A44F46B /* Pods-PensadorAppiOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PensadorAppiOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PensadorAppiOS/Pods-PensadorAppiOS.debug.xcconfig"; sourceTree = "<group>"; };
 		99547394AFA1A0865F75D490 /* Pods-PensadorAppiOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PensadorAppiOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PensadorAppiOSTests/Pods-PensadorAppiOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		A1D058167C93AAD95306D364 /* Pods-PensadorAppiOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PensadorAppiOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PensadorAppiOSTests/Pods-PensadorAppiOSTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -228,6 +230,7 @@
 		73575E2622440BEB00C932D1 /* resource */ = {
 			isa = PBXGroup;
 			children = (
+				73D4879A2252ABA800226404 /* animation */,
 				73575E32224411CD00C932D1 /* font */,
 				73575E31224410E800C932D1 /* storyboard */,
 				73575E2C22440C9000C932D1 /* config */,
@@ -350,6 +353,14 @@
 				73174281224A85F500BFE242 /* ExtensionUIViewController.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		73D4879A2252ABA800226404 /* animation */ = {
+			isa = PBXGroup;
+			children = (
+				73D4879D225392AE00226404 /* loading.json */,
+			);
+			path = animation;
 			sourceTree = "<group>";
 		};
 		A3558AC3B9C372E7350C6652 /* Pods */ = {
@@ -487,6 +498,7 @@
 				73575E4F224411E800C932D1 /* Lato-Semibold.ttf in Resources */,
 				73575E54224411E800C932D1 /* Lato-HairlineItalic.ttf in Resources */,
 				73575E51224411E800C932D1 /* Lato-Medium.ttf in Resources */,
+				73D4879E225392AE00226404 /* loading.json in Resources */,
 				73575DFD224408D100C932D1 /* Main.storyboard in Resources */,
 				73575E47224411E800C932D1 /* Lato-Italic.ttf in Resources */,
 				73575E4C224411E800C932D1 /* Lato-ThinItalic.ttf in Resources */,
@@ -548,6 +560,7 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
@@ -556,6 +569,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -805,13 +819,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 27WR6F66HS;
+				DEVELOPMENT_TEAM = U7PQ83RMH9;
 				INFOPLIST_FILE = PensadorAppiOS/resource/config/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ea.PensadorAppiOS;
+				PRODUCT_BUNDLE_IDENTIFIER = br.PensadorAppiOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -824,13 +838,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 27WR6F66HS;
+				DEVELOPMENT_TEAM = U7PQ83RMH9;
 				INFOPLIST_FILE = PensadorAppiOS/resource/config/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ea.PensadorAppiOS;
+				PRODUCT_BUNDLE_IDENTIFIER = br.PensadorAppiOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";

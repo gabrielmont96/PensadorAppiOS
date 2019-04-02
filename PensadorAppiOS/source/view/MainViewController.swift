@@ -7,11 +7,10 @@
 //
 
 import UIKit
+import Lottie
 
 class MainViewController: UIViewController {
 
-    @IBOutlet weak var vwLoading: UIView?
-    @IBOutlet weak var activityLoading: UIActivityIndicatorView?
     @IBOutlet weak var tfSearch: UITextField?
     @IBOutlet weak var tableView: UITableView?
     var presenter: MainPresenter?
@@ -19,7 +18,8 @@ class MainViewController: UIViewController {
     var selectedRowIndex: Int?
     var vwBgSearch: UIView?
     var alreadyPassed: Bool = false
-    
+    let animationView = AnimationView(name: "loading")
+
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter = MainPresenter(self)
@@ -27,7 +27,13 @@ class MainViewController: UIViewController {
         presenter?.getCategory()
         tfSearch?.delegate = self
         
-        activityLoading?.startAnimating()
+        animationView.frame = CGRect(x: 0, y: 0, width: 200, height: 200)
+        animationView.center = CGPoint(x: self.view.center.x, y: self.view.center.y+100)
+        animationView.animationSpeed = 1
+        self.view.addSubview(animationView)
+        animationView.loopMode = .loop
+        animationView.play()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -134,13 +140,13 @@ extension MainViewController: UITableViewDataSource {
         if (!alreadyPassed) {
             alreadyPassed = true
             UIView.animate(withDuration: 0.3, delay: 0.1, options: .curveEaseOut, animations: {
-                self.vwLoading?.alpha = 0.0
+                self.animationView.alpha = 0.0
             }, completion: {(isCompleted) in
-                self.vwLoading?.removeFromSuperview()
+                self.tableView?.isHidden = false
+                self.animationView.removeFromSuperview()
             })
         }
     }
-    
 }
 
 extension MainViewController: ThinkerDelegate {
@@ -157,7 +163,7 @@ extension MainViewController: ThinkerDelegate {
     func onFailure(message: String?) {
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1)) {
             self.showToast(message: "Failed to request", mode: .error)
-            self.vwLoading?.removeFromSuperview()
+            self.animationView.removeFromSuperview()
             self.tableView?.isHidden = true
         }
         print ("error")
