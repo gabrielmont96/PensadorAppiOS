@@ -1,17 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zrx-fY-qvW">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zrx-fY-qvW">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Lato-Bold.ttf">
-            <string>Lato-Bold</string>
-        </array>
         <array key="Lato-Regular.ttf">
             <string>Lato-Regular</string>
         </array>
@@ -100,7 +97,7 @@
                                     <constraint firstItem="Uxo-mZ-gTj" firstAttribute="centerX" secondItem="OVn-93-qlM" secondAttribute="centerX" id="xMF-w5-8bA"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" tag="100" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6Iv-H5-Oaz">
+                            <tableView hidden="YES" clipsSubviews="YES" tag="100" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6Iv-H5-Oaz">
                                 <rect key="frame" x="0.0" y="234" width="375" height="433"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
@@ -178,59 +175,24 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="C55-y8-APH"/>
                                 </connections>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="43q-et-dSB">
-                                <rect key="frame" x="0.0" y="234" width="375" height="433"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="aZd-pz-dgd">
-                                        <rect key="frame" x="152" y="158" width="71.5" height="57"/>
-                                        <subviews>
-                                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="IOR-46-iZh">
-                                                <rect key="frame" x="0.0" y="0.0" width="71.5" height="37"/>
-                                                <color key="color" red="0.79946567359999998" green="0.127926766" blue="0.0092881456669999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </activityIndicatorView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nkX-be-5FP">
-                                                <rect key="frame" x="0.0" y="37" width="71.5" height="20"/>
-                                                <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="71.5" id="C57-49-0sO"/>
-                                            <constraint firstAttribute="height" constant="57" id="FP9-Pk-JFv"/>
-                                        </constraints>
-                                    </stackView>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="aZd-pz-dgd" firstAttribute="centerY" secondItem="43q-et-dSB" secondAttribute="centerY" constant="-30" id="Hef-te-cAg"/>
-                                    <constraint firstItem="aZd-pz-dgd" firstAttribute="centerX" secondItem="43q-et-dSB" secondAttribute="centerX" id="XW3-O5-APd"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="OVn-93-qlM" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="9UM-Ei-dgm"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="6Iv-H5-Oaz" secondAttribute="trailing" id="Kv8-tH-rgF"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="43q-et-dSB" secondAttribute="trailing" id="LDd-kN-Vlu"/>
                             <constraint firstItem="6Iv-H5-Oaz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="M0G-nl-yYt"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="OVn-93-qlM" secondAttribute="trailing" id="WNN-wg-OLJ"/>
                             <constraint firstItem="OVn-93-qlM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ZWM-na-Bka"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="6Iv-H5-Oaz" secondAttribute="bottom" id="diV-f4-jHO"/>
-                            <constraint firstItem="43q-et-dSB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="gJE-Ry-MQC"/>
                             <constraint firstItem="6Iv-H5-Oaz" firstAttribute="top" secondItem="OVn-93-qlM" secondAttribute="bottom" id="nad-wi-Ipb"/>
-                            <constraint firstItem="43q-et-dSB" firstAttribute="bottom" secondItem="6Iv-H5-Oaz" secondAttribute="bottom" id="pAE-FO-J2C"/>
                             <constraint firstItem="OVn-93-qlM" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="y9f-8K-8eU"/>
-                            <constraint firstItem="43q-et-dSB" firstAttribute="top" secondItem="6Iv-H5-Oaz" secondAttribute="top" id="yCo-UX-YQE"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="O PENSADOR" id="kfB-du-z7e"/>
                     <connections>
-                        <outlet property="activityLoading" destination="IOR-46-iZh" id="9CM-Fs-pqA"/>
                         <outlet property="tableView" destination="6Iv-H5-Oaz" id="v1X-sa-shu"/>
                         <outlet property="tfSearch" destination="zAK-In-m7M" id="YOd-6m-H3C"/>
-                        <outlet property="vwLoading" destination="43q-et-dSB" id="P7E-HO-zQA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -250,7 +212,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yhF-ea-tLH">
+                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yhF-ea-tLH">
                                 <rect key="frame" x="0.0" y="50" width="375" height="617"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="separatorColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -325,35 +287,6 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vcw-Kw-bnm">
-                                <rect key="frame" x="0.0" y="50" width="375" height="617"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="sVJ-IH-ydc">
-                                        <rect key="frame" x="152" y="250" width="71.5" height="57"/>
-                                        <subviews>
-                                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="pet-CU-l9a">
-                                                <rect key="frame" x="0.0" y="0.0" width="71.5" height="37"/>
-                                                <color key="color" red="0.79946567359999998" green="0.127926766" blue="0.0092881456669999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </activityIndicatorView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ceU-Uu-oJH">
-                                                <rect key="frame" x="0.0" y="37" width="71.5" height="20"/>
-                                                <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="57" id="CKr-UJ-ePx"/>
-                                            <constraint firstAttribute="width" constant="71.5" id="rGg-c9-yTZ"/>
-                                        </constraints>
-                                    </stackView>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="sVJ-IH-ydc" firstAttribute="centerY" secondItem="vcw-Kw-bnm" secondAttribute="centerY" constant="-30" id="jrt-Fb-5eX"/>
-                                    <constraint firstItem="sVJ-IH-ydc" firstAttribute="centerX" secondItem="vcw-Kw-bnm" secondAttribute="centerX" id="w34-Ea-2i8"/>
-                                </constraints>
-                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Bf-tl-FE6">
                                 <rect key="frame" x="0.0" y="20" width="375" height="30"/>
                                 <subviews>
@@ -378,23 +311,17 @@
                             <constraint firstItem="3Bf-tl-FE6" firstAttribute="leading" secondItem="vPE-A8-btx" secondAttribute="leading" id="51Q-b6-78z"/>
                             <constraint firstItem="vPE-A8-btx" firstAttribute="trailing" secondItem="yhF-ea-tLH" secondAttribute="trailing" id="7Ow-2a-LQw"/>
                             <constraint firstItem="yhF-ea-tLH" firstAttribute="top" secondItem="3Bf-tl-FE6" secondAttribute="bottom" id="DDB-f5-PNZ"/>
-                            <constraint firstItem="vcw-Kw-bnm" firstAttribute="bottom" secondItem="yhF-ea-tLH" secondAttribute="bottom" id="HHY-Ln-miM"/>
                             <constraint firstItem="3Bf-tl-FE6" firstAttribute="top" secondItem="vPE-A8-btx" secondAttribute="top" id="VKG-M6-9WV"/>
                             <constraint firstItem="vPE-A8-btx" firstAttribute="bottom" secondItem="yhF-ea-tLH" secondAttribute="bottom" id="VX6-yz-FC5"/>
                             <constraint firstItem="vPE-A8-btx" firstAttribute="trailing" secondItem="3Bf-tl-FE6" secondAttribute="trailing" id="bG0-x3-CiT"/>
-                            <constraint firstItem="vcw-Kw-bnm" firstAttribute="top" secondItem="yhF-ea-tLH" secondAttribute="top" id="cOG-ul-cUi"/>
                             <constraint firstItem="yhF-ea-tLH" firstAttribute="leading" secondItem="vPE-A8-btx" secondAttribute="leading" id="mL8-cb-Dok"/>
                             <constraint firstItem="3Bf-tl-FE6" firstAttribute="centerX" secondItem="vPE-A8-btx" secondAttribute="centerX" id="sZ7-CG-IEw"/>
-                            <constraint firstItem="vcw-Kw-bnm" firstAttribute="trailing" secondItem="vPE-A8-btx" secondAttribute="trailing" id="wKm-IJ-m5W"/>
-                            <constraint firstItem="vcw-Kw-bnm" firstAttribute="leading" secondItem="vPE-A8-btx" secondAttribute="leading" id="z65-a4-jAF"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vPE-A8-btx"/>
                     </view>
                     <connections>
-                        <outlet property="activityLoading" destination="pet-CU-l9a" id="Xn8-V3-Pyi"/>
                         <outlet property="lblTitle" destination="SMG-Kx-yll" id="Tn2-n6-L5K"/>
                         <outlet property="tableView" destination="yhF-ea-tLH" id="fv5-VA-UCc"/>
-                        <outlet property="vwLoading" destination="vcw-Kw-bnm" id="Eay-0A-0t8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vyo-1T-cmV" userLabel="First Responder" sceneMemberID="firstResponder"/>

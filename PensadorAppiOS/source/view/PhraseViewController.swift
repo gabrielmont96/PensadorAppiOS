@@ -19,9 +19,8 @@ class PhraseViewController: UIViewController {
     var alreadyPassed: Bool = false
     var fromCategory = false
     var fromSearch = false
-    
-    @IBOutlet weak var vwLoading: UIView?
-    @IBOutlet weak var activityLoading: UIActivityIndicatorView?
+    var loading: Loading?
+
     @IBOutlet weak var lblTitle: UILabel?
     @IBOutlet weak var tableView: UITableView? {
         didSet {
@@ -41,7 +40,11 @@ class PhraseViewController: UIViewController {
             presenter?.getSearchResult(param: param, page: page)
         }
         
-        activityLoading?.startAnimating()
+        loading = Loading(frame: self.view.frame, center: self.view.center)
+        
+        if let lndg = loading {
+            self.view.addSubview(lndg)
+        }
 
     }
     
@@ -100,9 +103,10 @@ extension PhraseViewController: UITableViewDataSource {
         if (!alreadyPassed) {
             alreadyPassed = true
             UIView.animate(withDuration: 0.3, delay: 0.1, options: .curveEaseOut, animations: {
-                self.vwLoading?.alpha = 0.0
+                self.loading?.alpha = 0.0
             }, completion: {(isCompleted) in
-                self.vwLoading?.removeFromSuperview()
+                self.tableView?.isHidden = false
+                self.loading?.removeFromSuperview()
             })
         }
         
@@ -132,7 +136,7 @@ extension PhraseViewController: PhraseDelegate {
     func onFailure(message: String?) {
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1)) {
             self.showToast(message: "Failed to request", mode: .error)
-            self.vwLoading?.removeFromSuperview()
+            self.loading?.removeFromSuperview()
             self.tableView?.isHidden = true
         }
         print(message)

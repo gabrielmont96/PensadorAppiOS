@@ -10,15 +10,16 @@ import UIKit
 
 class MainViewController: UIViewController {
 
-    @IBOutlet weak var vwLoading: UIView?
-    @IBOutlet weak var activityLoading: UIActivityIndicatorView?
-    @IBOutlet weak var tfSearch: UITextField?
-    @IBOutlet weak var tableView: UITableView?
     var presenter: MainPresenter?
     var category: [Thinker] = []
     var selectedRowIndex: Int?
     var vwBgSearch: UIView?
     var alreadyPassed: Bool = false
+    var loading: Loading?
+    
+    @IBOutlet weak var tfSearch: UITextField?
+    @IBOutlet weak var tableView: UITableView?
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +28,11 @@ class MainViewController: UIViewController {
         presenter?.getCategory()
         tfSearch?.delegate = self
         
-        activityLoading?.startAnimating()
+        loading = Loading(frame: self.view.frame, center: self.view.center, moveCenterY: 100)
+        
+        if let lndg = loading {
+            self.view.addSubview(lndg)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -134,9 +139,10 @@ extension MainViewController: UITableViewDataSource {
         if (!alreadyPassed) {
             alreadyPassed = true
             UIView.animate(withDuration: 0.3, delay: 0.1, options: .curveEaseOut, animations: {
-                self.vwLoading?.alpha = 0.0
+                self.loading?.alpha = 0.0
             }, completion: {(isCompleted) in
-                self.vwLoading?.removeFromSuperview()
+                self.tableView?.isHidden = false
+                self.loading?.removeFromSuperview()
             })
         }
     }
@@ -157,7 +163,7 @@ extension MainViewController: ThinkerDelegate {
     func onFailure(message: String?) {
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1)) {
             self.showToast(message: "Failed to request", mode: .error)
-            self.vwLoading?.removeFromSuperview()
+            self.loading?.removeFromSuperview()
             self.tableView?.isHidden = true
         }
         print ("error")

@@ -8,6 +8,7 @@ target 'PensadorAppiOS' do
   # Pods for PensadorAppiOS
   pod 'Alamofire', '~> 4.3'
   pod 'Kingfisher', '~> 4.6.1'
+  pod 'lottie-ios'
   
   target 'PensadorAppiOSTests' do
     inherit! :search_paths
