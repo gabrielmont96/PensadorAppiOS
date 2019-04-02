@@ -20,10 +20,8 @@ class PhraseViewController: UIViewController {
     var alreadyPassed: Bool = false
     var fromCategory = false
     var fromSearch = false
-    let animationView = AnimationView(name: "loading")
+    var loading: Loading?
     
-    
-    @IBOutlet weak var vwLoading: UIView?
     @IBOutlet weak var lblTitle: UILabel?
     @IBOutlet weak var tableView: UITableView? {
         didSet {
@@ -44,12 +42,11 @@ class PhraseViewController: UIViewController {
             presenter?.getSearchResult(param: param, page: page)
         }
         
-        animationView.frame = CGRect(x: 0, y: 0, width: 200, height: 200)
-        animationView.center = self.view.center
-        animationView.animationSpeed = 1
-        self.view.addSubview(animationView)
-        animationView.loopMode = .loop
-        animationView.play()
+        loading = Loading(frame: self.view.frame, center: self.view.center)
+        
+        if let lndg = loading {
+            self.view.addSubview(lndg)
+        }
         
     }
     
@@ -108,10 +105,11 @@ extension PhraseViewController: UITableViewDataSource {
         if (!alreadyPassed) {
             alreadyPassed = true
             UIView.animate(withDuration: 0.3, delay: 0.1, options: .curveEaseOut, animations: {
-                self.animationView.alpha = 0.0
+                self.loading?.alpha = 0.0
             }, completion: {(isCompleted) in
                 self.tableView?.isHidden = false
-                self.animationView.removeFromSuperview()
+                self.loading?.removeFromSuperview()
+
             })
         }
         
@@ -142,7 +140,7 @@ extension PhraseViewController: PhraseDelegate {
     func onFailure(message: String?) {
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1)) {
             self.showToast(message: "Failed to request", mode: .error)
-            self.vwLoading?.removeFromSuperview()
+            self.loading?.removeFromSuperview()
             self.tableView?.isHidden = true
         }
         print(message)

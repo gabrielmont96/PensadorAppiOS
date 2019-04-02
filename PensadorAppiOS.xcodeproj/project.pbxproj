@@ -47,6 +47,7 @@
 		73575E6B22454A7700C932D1 /* PhraseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73575E6A22454A7700C932D1 /* PhraseViewController.swift */; };
 		73575E6D224565EE00C932D1 /* CategoryInsideCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73575E6C224565EE00C932D1 /* CategoryInsideCell.swift */; };
 		73D4879E225392AE00226404 /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 73D4879D225392AE00226404 /* loading.json */; };
+		73D487A0225397E800226404 /* Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D4879F225397E800226404 /* Loading.swift */; };
 		BE18EFA08A6224DEBCF24B47 /* Pods_PensadorAppiOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D07C3256B6F4581C1E07DE5 /* Pods_PensadorAppiOSTests.framework */; };
 		D51EF00B4EFEA8D43F0C074B /* Pods_PensadorAppiOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5247CA952E0F51E42AA7992 /* Pods_PensadorAppiOSUITests.framework */; };
 		EAAE6C8B3A34950669ECE0D4 /* Pods_PensadorAppiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39BAB8F4B57135C7055C57FB /* Pods_PensadorAppiOS.framework */; };
@@ -120,6 +121,7 @@
 		73575E6A22454A7700C932D1 /* PhraseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhraseViewController.swift; sourceTree = "<group>"; };
 		73575E6C224565EE00C932D1 /* CategoryInsideCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryInsideCell.swift; sourceTree = "<group>"; };
 		73D4879D225392AE00226404 /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
+		73D4879F225397E800226404 /* Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loading.swift; sourceTree = "<group>"; };
 		7C07580A290D417E7A44F46B /* Pods-PensadorAppiOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PensadorAppiOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PensadorAppiOS/Pods-PensadorAppiOS.debug.xcconfig"; sourceTree = "<group>"; };
 		99547394AFA1A0865F75D490 /* Pods-PensadorAppiOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PensadorAppiOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PensadorAppiOSTests/Pods-PensadorAppiOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		A1D058167C93AAD95306D364 /* Pods-PensadorAppiOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PensadorAppiOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PensadorAppiOSTests/Pods-PensadorAppiOSTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -333,6 +335,7 @@
 			isa = PBXGroup;
 			children = (
 				73575E5E224518AB00C932D1 /* cell */,
+				73D4879F225397E800226404 /* Loading.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -628,6 +631,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				73575E5A2244147E00C932D1 /* ListCat.swift in Sources */,
+				73D487A0225397E800226404 /* Loading.swift in Sources */,
 				73575E5C224415C100C932D1 /* MainPresenter.swift in Sources */,
 				73575E67224547DD00C932D1 /* Phrase.swift in Sources */,
 				734D066422494A4D0029587F /* PhrasesCell.swift in Sources */,
