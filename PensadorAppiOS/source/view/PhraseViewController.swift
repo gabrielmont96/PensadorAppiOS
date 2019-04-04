@@ -7,12 +7,14 @@
 //
 
 import UIKit
+import FirebaseFirestore
+import FirebaseInstanceID
 
 class PhraseViewController: UIViewController {
 
     var presenter: PhrasePresenter?
     var param = ""
-    var phrases: [Phrase] = []
+    var phrases: [Phrase]? = []
     var phraseSelected: Phrase?
     var page = 1
     var titleMainView: String?
@@ -59,7 +61,7 @@ class PhraseViewController: UIViewController {
     
     @objc func tapBtnCopy(sender: UIButton) {
         let buttonTag = sender.tag
-        if let text = phrases[buttonTag].text {
+        if let text = phrases?[buttonTag].text {
             UIPasteboard.general.string = text
             showToast(message: "Copied successfully!", mode: .success )
         } else {
@@ -69,29 +71,77 @@ class PhraseViewController: UIViewController {
     
     @objc func tapBtnShare(sender: UIButton) {
         let buttonTag = sender.tag
-        if let text = phrases[buttonTag].text {
+        if let text = phrases?[buttonTag].text {
             let vc = UIActivityViewController(activityItems: [text], applicationActivities: [])
             present(vc, animated: true)
         }
     }
-
+    
+    @objc func tapBtnFavorite(sender: UIButton) {
+        let buttonTag = sender.tag
+        if var phrase = phrases?[buttonTag] {
+            InstanceID.instanceID().instanceID { (result, error) in
+                if let error = error {
+                    print("Error fetching remote instange ID: \(error)")
+                } else if let result = result {
+                    let db = Firestore.firestore()
+                    if !(self.phrases?[buttonTag].favorite)! {
+                        self.phrases?[buttonTag].favorite = true
+                                print("Remote instance ID token: \(result.token)")
+                        
+                                db.collection(result.token).document().setData([
+                                    "text": phrase.text ?? "",
+                                    "imageUrl": phrase.imageUrl ?? "",
+                                    "favorite": phrase.favorite
+                                ]) { err in
+                                    if let err = err {
+                                        print("Error writing document: \(err)")
+                                    } else {
+                                        print("Document successfully written!")
+                                    }
+                                }
+                    } else {
+                        self.phrases?[buttonTag].favorite = false
+                        db.collection(result.token).whereField("imageUrl", isEqualTo: phrase.imageUrl ?? "").getDocuments() { (querySnapshot, err) in
+                            if let err = err {
+                                print("Error getting documents: \(err)")
+                            } else {
+                                for document in querySnapshot!.documents {
+                                    document.reference.delete()
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        self.tableView?.reloadData()
+    }
 }
 
 extension PhraseViewController: UITableViewDelegate {}
 
 extension PhraseViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return phrases.count
+        return phrases?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let identifier = PhrasesCell.identifier
         if let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as? PhrasesCell {
-            cell.prepareCell(phrases: phrases[indexPath.row])
+            cell.prepareCell(phrases: phrases![indexPath.row])
             cell.btnCopy?.addTarget(self, action: #selector(tapBtnCopy(sender:)), for: .touchUpInside)
             cell.btnCopy?.tag = indexPath.row
             cell.btnShare?.addTarget(self, action: #selector(tapBtnShare(sender:)), for: .touchUpInside)
             cell.btnShare?.tag = indexPath.row
+            cell.btnFavorite.addTarget(self, action: #selector(tapBtnFavorite(sender:)), for: .touchUpInside)
+            cell.btnFavorite.tag = indexPath.row
+            
+            if (phrases?[indexPath.row].favorite)! {
+                cell.btnFavorite.setImage(UIImage(named: "favorite"), for: .normal)
+            } else {
+                cell.btnFavorite.setImage(UIImage(named: "unfavorite"), for: .normal)
+            }
             
             return cell
         }
@@ -128,7 +178,8 @@ extension PhraseViewController: PhraseDelegate {
     func onSuccessSearch(phrases: List) {
         print("")
         for item in phrases.list {
-            self.phrases.append(item)
+            self.phrases?.append(item)
+            
         }
         tableView?.reloadData()
     }

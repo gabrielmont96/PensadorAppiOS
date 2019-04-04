@@ -15,6 +15,7 @@ class PhrasesCell: UITableViewCell {
     @IBOutlet weak var imgHeader: UIImageView?
     @IBOutlet weak var btnCopy: UIButton?
     @IBOutlet weak var btnShare: UIButton?
+    @IBOutlet weak var btnFavorite: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()

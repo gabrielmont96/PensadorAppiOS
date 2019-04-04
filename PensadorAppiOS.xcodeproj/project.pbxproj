@@ -563,7 +563,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-PensadorAppiOS/Pods-PensadorAppiOS-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-PensadorAppiOS/Pods-PensadorAppiOS-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
@@ -592,7 +592,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PensadorAppiOS/Pods-PensadorAppiOS-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PensadorAppiOS/Pods-PensadorAppiOS-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		96F37C00C793419A24C84D4A /* [CP] Check Pods Manifest.lock */ = {

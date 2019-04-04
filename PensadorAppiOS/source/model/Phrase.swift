@@ -11,7 +11,8 @@ struct Phrase: Codable {
     var sharing: String?
     var imageUrl: String?
     var author: Author?
-    
+    var favorite = false
+
     enum CodingKeys: String, CodingKey {
         case text = "texto"
         case sharing = "compartilhamentos"

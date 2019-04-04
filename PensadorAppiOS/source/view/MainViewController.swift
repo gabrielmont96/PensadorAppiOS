@@ -37,40 +37,6 @@ class MainViewController: UIViewController {
             self.view.addSubview(lndg)
         }
         
-        
-        InstanceID.instanceID().instanceID { (result, error) in
-            if let error = error {
-                print("Error fetching remote instange ID: \(error)")
-            } else if let result = result {
-                print("Remote instance ID token: \(result.token)")
-                let db = Firestore.firestore()
-                db.collection(result.token).document().setData([
-                    "name": "aa",
-                    "state": "bb",
-                    "country": "cc"
-                ]) { err in
-                    if let err = err {
-                        print("Error writing document: \(err)")
-                    } else {
-                        print("Document successfully written!")
-                    }
-                }
-            }
-        }
-        
-
-        
-//        
-//        db.collection("cities").whereField("country", isEqualTo: "BR").getDocuments() { (querySnapshot, err) in
-//            if let err = err {
-//                print("Error getting documents: \(err)")
-//            } else {
-//                for document in querySnapshot!.documents {
-//                    document.reference.delete()
-//                }
-//            }
-//        }
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
