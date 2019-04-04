@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 var baseURL =  "https://pensadorapi.herokuapp.com/api"
 
@@ -15,9 +16,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
 
+    
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        FirebaseApp.configure()
         return true
     }
 

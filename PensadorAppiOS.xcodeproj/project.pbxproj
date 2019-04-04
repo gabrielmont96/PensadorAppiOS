@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6D60A51C2255723700AC3458 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6D60A51B2255723700AC3458 /* GoogleService-Info.plist */; };
 		6DC08C6A2253BBCE00030282 /* Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DC08C692253BBCE00030282 /* Loading.swift */; };
 		6DC08C6F2253C14E00030282 /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 6DC08C6E2253C14E00030282 /* loading.json */; };
 		73174282224A85F500BFE242 /* ExtensionUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73174281224A85F500BFE242 /* ExtensionUIViewController.swift */; };
@@ -74,6 +75,7 @@
 		1D07C3256B6F4581C1E07DE5 /* Pods_PensadorAppiOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PensadorAppiOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		39BAB8F4B57135C7055C57FB /* Pods_PensadorAppiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PensadorAppiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E555E17C6A2D80C1C153BA1 /* Pods-PensadorAppiOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PensadorAppiOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-PensadorAppiOS/Pods-PensadorAppiOS.release.xcconfig"; sourceTree = "<group>"; };
+		6D60A51B2255723700AC3458 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		6DC08C692253BBCE00030282 /* Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loading.swift; sourceTree = "<group>"; };
 		6DC08C6E2253C14E00030282 /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = loading.json; path = ../../../../../Downloads/loading.json; sourceTree = "<group>"; };
 		6F5374144E78A6B50408F1B3 /* Pods-PensadorAppiOSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PensadorAppiOSUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PensadorAppiOSUITests/Pods-PensadorAppiOSUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 		73575DF6224408D100C932D1 /* PensadorAppiOS */ = {
 			isa = PBXGroup;
 			children = (
+				6D60A51B2255723700AC3458 /* GoogleService-Info.plist */,
 				73575E2522440BE400C932D1 /* source */,
 				73575E2622440BEB00C932D1 /* resource */,
 			);
@@ -506,6 +509,7 @@
 				73575E47224411E800C932D1 /* Lato-Italic.ttf in Resources */,
 				73575E4C224411E800C932D1 /* Lato-ThinItalic.ttf in Resources */,
 				73575E48224411E800C932D1 /* Lato-BoldItalic.ttf in Resources */,
+				6D60A51C2255723700AC3458 /* GoogleService-Info.plist in Resources */,
 				73575E45224411E800C932D1 /* Lato-Bold.ttf in Resources */,
 				73575E52224411E800C932D1 /* Lato-Black.ttf in Resources */,
 				73575E49224411E800C932D1 /* Lato-Light.ttf in Resources */,
@@ -561,16 +565,30 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-PensadorAppiOS/Pods-PensadorAppiOS-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

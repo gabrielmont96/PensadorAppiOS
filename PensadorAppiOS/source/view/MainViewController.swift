@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import FirebaseFirestore
+import FirebaseInstanceID
 
 class MainViewController: UIViewController {
 
@@ -16,6 +18,7 @@ class MainViewController: UIViewController {
     var vwBgSearch: UIView?
     var alreadyPassed: Bool = false
     var loading: Loading?
+    var id = ""
     
     @IBOutlet weak var tfSearch: UITextField?
     @IBOutlet weak var tableView: UITableView?
@@ -33,6 +36,41 @@ class MainViewController: UIViewController {
         if let lndg = loading {
             self.view.addSubview(lndg)
         }
+        
+        
+        InstanceID.instanceID().instanceID { (result, error) in
+            if let error = error {
+                print("Error fetching remote instange ID: \(error)")
+            } else if let result = result {
+                print("Remote instance ID token: \(result.token)")
+                let db = Firestore.firestore()
+                db.collection(result.token).document().setData([
+                    "name": "aa",
+                    "state": "bb",
+                    "country": "cc"
+                ]) { err in
+                    if let err = err {
+                        print("Error writing document: \(err)")
+                    } else {
+                        print("Document successfully written!")
+                    }
+                }
+            }
+        }
+        
+
+        
+//        
+//        db.collection("cities").whereField("country", isEqualTo: "BR").getDocuments() { (querySnapshot, err) in
+//            if let err = err {
+//                print("Error getting documents: \(err)")
+//            } else {
+//                for document in querySnapshot!.documents {
+//                    document.reference.delete()
+//                }
+//            }
+//        }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {

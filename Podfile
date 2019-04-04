@@ -9,6 +9,8 @@ target 'PensadorAppiOS' do
   pod 'Alamofire', '~> 4.3'
   pod 'Kingfisher', '~> 4.6.1'
   pod 'lottie-ios'
+  pod 'Firebase/Core'
+  pod 'Firebase/Firestore'
   
   target 'PensadorAppiOSTests' do
     inherit! :search_paths
