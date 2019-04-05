@@ -22,7 +22,8 @@ class PhraseViewController: UIViewController {
     var fromCategory = false
     var fromSearch = false
     var loading: Loading?
-
+    var phraseTwo: [Phrase] = []
+    
     @IBOutlet weak var lblTitle: UILabel?
     @IBOutlet weak var tableView: UITableView? {
         didSet {
@@ -34,6 +35,10 @@ class PhraseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter = PhrasePresenter(self)
+        
+        var button = UIBarButtonItem(image: UIImage(named: "unfavorite"), style: .plain, target: self, action: #selector(test))
+        navigationItem.rightBarButtonItem = button
+        
         if fromCategory {
             presenter?.getPrasesCategoryResult(param: param, page: page)
         }
@@ -59,6 +64,36 @@ class PhraseViewController: UIViewController {
         }
     }
     
+    
+    @objc func test() {
+        if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PhraseViewController") as? PhraseViewController {
+   
+            
+            
+                InstanceID.instanceID().instanceID { (result, error) in
+                    if let error = error {
+                        print("Error fetching remote instange ID: \(error)")
+                    } else if let result = result {
+                        let db = Firestore.firestore()
+                        let docRef = db.collection(result.token).document()
+                        docRef.getDocument { (snapshot, error) in
+                            if let text = snapshot?.value(forKey: "text"), let imageUrl = snapshot?.value(forKey: "imageUrl") {
+                                vc.phraseTwo.append(Phrase(text: text as! String, imageUrl: imageUrl as! String))
+                            }
+                        }
+                    }
+                }
+            
+            
+            
+            
+            
+            
+            vc.navigationItem.rightBarButtonItem = nil
+            navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
     @objc func tapBtnCopy(sender: UIButton) {
         let buttonTag = sender.tag
         if let text = phrases?[buttonTag].text {
@@ -79,6 +114,8 @@ class PhraseViewController: UIViewController {
     
     @objc func tapBtnFavorite(sender: UIButton) {
         let buttonTag = sender.tag
+        let indexPath = IndexPath(item: buttonTag, section: 0)
+       
         if var phrase = phrases?[buttonTag] {
             InstanceID.instanceID().instanceID { (result, error) in
                 if let error = error {
@@ -115,7 +152,7 @@ class PhraseViewController: UIViewController {
                 }
             }
         }
-        self.tableView?.reloadData()
+        tableView?.reloadRows(at: [indexPath], with: .automatic)
     }
 }
 

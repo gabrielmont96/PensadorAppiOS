@@ -202,7 +202,7 @@
         <!--Phrase View Controller-->
         <scene sceneID="PA1-Hc-CLd">
             <objects>
-                <viewController storyboardIdentifier="FrasesViewController" id="RKf-Hz-uCr" customClass="PhraseViewController" customModule="PensadorAppiOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PhraseViewController" id="RKf-Hz-uCr" customClass="PhraseViewController" customModule="PensadorAppiOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IDe-dy-BDi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

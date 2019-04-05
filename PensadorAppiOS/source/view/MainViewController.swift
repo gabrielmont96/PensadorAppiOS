@@ -56,7 +56,7 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func goSearchPage(_ sender: Any) {
-        if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FrasesViewController") as? PhraseViewController {
+        if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PhraseViewController") as? PhraseViewController {
             if let text = tfSearch?.text, text != "" {
                 vc.param = text
                 vc.fromSearch = true
@@ -179,7 +179,7 @@ extension MainViewController: ThinkerDelegate {
 extension MainViewController: CallPhrasesDelegate {
     func callPhrasesInView(urlApi: String, title: String) {
        
-        if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FrasesViewController") as? PhraseViewController {
+        if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PhraseViewController") as? PhraseViewController {
             var text = urlApi
             text.removeFirst()
             text.removeLast()
