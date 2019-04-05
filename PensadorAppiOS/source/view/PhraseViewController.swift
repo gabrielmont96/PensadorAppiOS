@@ -75,8 +75,7 @@ class PhraseViewController: UIViewController {
                         print("Error fetching remote instange ID: \(error)")
                     } else if let result = result {
                         let db = Firestore.firestore()
-                        let docRef = db.collection(result.token).document()
-                        docRef.getDocument { (snapshot, error) in
+                        db.collection(result.token).getDocuments() { (snapshot, error) in
                             if let text = snapshot?.value(forKey: "text"), let imageUrl = snapshot?.value(forKey: "imageUrl") {
                                 vc.phraseTwo.append(Phrase(text: text as! String, imageUrl: imageUrl as! String))
                             }
