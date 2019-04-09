@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseFirestore
 import FirebaseInstanceID
+import FirebaseAuth
 
 class MainViewController: UIViewController {
 
@@ -37,6 +38,25 @@ class MainViewController: UIViewController {
             self.view.addSubview(lndg)
         }
         
+        navigationItem.backBarButtonItem = nil
+        navigationItem.hidesBackButton = true
+        
+        let btn = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logout))
+        
+        navigationItem.rightBarButtonItem = btn
+        
+        
+    }
+    
+    @objc func logout() {
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+            print("deslogado")
+            self.navigationController?.popViewController(animated: true)
+        } catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

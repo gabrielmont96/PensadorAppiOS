@@ -36,7 +36,7 @@ class PhraseViewController: UIViewController {
         super.viewDidLoad()
         presenter = PhrasePresenter(self)
         
-        var button = UIBarButtonItem(image: UIImage(named: "unfavorite"), style: .plain, target: self, action: #selector(test))
+        let button = UIBarButtonItem(image: UIImage(named: "unfavorite"), style: .plain, target: self, action: #selector(test))
         navigationItem.rightBarButtonItem = button
         
         if fromCategory {
@@ -115,7 +115,7 @@ class PhraseViewController: UIViewController {
         let buttonTag = sender.tag
         let indexPath = IndexPath(item: buttonTag, section: 0)
        
-        if var phrase = phrases?[buttonTag] {
+        if let phrase = phrases?[buttonTag] {
             InstanceID.instanceID().instanceID { (result, error) in
                 if let error = error {
                     print("Error fetching remote instange ID: \(error)")
@@ -226,6 +226,5 @@ extension PhraseViewController: PhraseDelegate {
             self.loading?.removeFromSuperview()
             self.tableView?.isHidden = true
         }
-        print(message)
     }
 }

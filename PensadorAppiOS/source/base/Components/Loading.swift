@@ -5,11 +5,10 @@
 //  Created by Gabriel Silva on 02/04/19.
 //  Copyright © 2019 Gabriel Silva. All rights reserved.
 //
-import Foundation
-import UIKit
+
 import Lottie
 
-class Loading: UIView {
+class Loading: LottieView {
     var loadingView: Loading?
     
     init(frame: CGRect, center: CGPoint, moveCenterY: CGFloat = 0) {

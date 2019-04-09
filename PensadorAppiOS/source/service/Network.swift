@@ -50,13 +50,13 @@ final class Network {
                 }
                 
                 
-                let data : [String:Any] = [
-                    "url": url,
-                    "method": method.rawValue,
-                    "body": parameters,
-                    "headers": headers,
-                    "response": response.result.value
-                ]
+//                let data : [String:Any] = [
+//                    "url": url,
+//                    "method": method.rawValue,
+//                    "body": parameters,
+//                    "headers": headers,
+//                    "response": response.result.value
+//                ]
                 
                 completion(response)
         }
@@ -66,7 +66,7 @@ final class Network {
     
     // MARK: helpers
     private class func defaultHeaders() -> [String: String] {
-        var headers: [String: String] = [:]
+        let headers: [String: String] = [:]
         return headers
     }
     

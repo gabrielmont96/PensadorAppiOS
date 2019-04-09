@@ -11,7 +11,10 @@ target 'PensadorAppiOS' do
   pod 'lottie-ios'
   pod 'Firebase/Core'
   pod 'Firebase/Firestore'
-  
+  pod 'FirebaseAuth'
+  pod 'TextFieldEffects'
+  pod 'TransitionButton'
+
   target 'PensadorAppiOSTests' do
     inherit! :search_paths
     # Pods for testing
