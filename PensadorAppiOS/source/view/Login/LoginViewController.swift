@@ -55,6 +55,13 @@ class LoginViewController: UIViewController {
         
         showLoading()
         
+        passwordTextField?.addTarget(self, action: #selector(textFieldPasswordWasTapped), for: .touchDown)
+        
+    }
+    
+    
+    @objc func textFieldPasswordWasTapped() {
+        showPasswordButton.isHidden = false
     }
     
     
@@ -156,16 +163,4 @@ class LoginViewController: UIViewController {
     
 }
 
-extension LoginViewController: UITextFieldDelegate {
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        showPasswordButton.isHidden = false
-    }
-    
-    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        showPasswordButton.isHidden = false
-        return true 
-    }
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        showPasswordButton.isHidden = true
-    }
-}
+extension LoginViewController: UITextFieldDelegate {}

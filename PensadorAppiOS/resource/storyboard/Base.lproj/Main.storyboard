@@ -353,7 +353,7 @@
                                     <constraint firstItem="fC5-5T-ynb" firstAttribute="leading" secondItem="3Rw-xL-C4d" secondAttribute="leading" id="gAe-yr-U2K"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mO6-ts-tWh">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mO6-ts-tWh">
                                 <rect key="frame" x="265" y="290.5" width="25" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="25" id="CLD-LP-1wU"/>
