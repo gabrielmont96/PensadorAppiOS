@@ -9,76 +9,78 @@
 import UIKit
 import FirebaseAuth
 import TextFieldEffects
+import TransitionButton
 
 class LoginViewController: UIViewController {
 
     @IBOutlet weak var usernameTextField: TextFieldEffects?
     @IBOutlet weak var passwordTextField: TextFieldEffects?
-    @IBOutlet weak var signButton: UIButton?
-    @IBOutlet weak var registerButton: UIButton?
+    @IBOutlet weak var signButton: TransitionButton?
     @IBOutlet weak var rememberImage: UIImageView?
     @IBOutlet var messageErrorLabel: Array<UILabel> = []
+    @IBOutlet weak var signInButton: TransitionButton?
+    @IBOutlet weak var registerButton: TransitionButton?
+    @IBOutlet weak var showPasswordButton: UIButton!
+    
+    let userDefault = UserDefaults.standard
+    let remember = "remember"
+    let username = "username"
+    let password = "password"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.addGestureRecognizer(dismissKeyboard())
     }
     
-    @objc func remember(_ sender:UITapGestureRecognizer) {
-
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.isNavigationBarHidden = true
-        configTextField()
+        super.viewWillAppear(animated)
         
-        if UserDefaults.standard.bool(forKey: "remember") {
-            if usernameTextField?.text != "" && passwordTextField?.text != "" {
-                rememberImage?.image = UIImage(named: "rememberchecked")
+        self.navigationController?.isNavigationBarHidden = true
+        self.view.setGradientBackground(colorTop: UIColor(red: 247/255, green: 152/255, blue: 136/255, alpha: 1.0),
+                                        colorBottom: UIColor(red: 63/255, green: 95/255, blue: 155/255, alpha: 1.0))
+        self.showPasswordButton.tintColor = UIColor.white
+        
+        if userDefault.bool(forKey: remember) {
+            if let username = userDefault.string(forKey: username), let password = userDefault.string(forKey: password) {
+                rememberImage?.image = UIImage(named: "checked")
+                usernameTextField?.text = username
+                passwordTextField?.text = password
             }
         } else {
-            rememberImage?.image = UIImage(named: "rememberunchecked")
-        }
-        
-        if let username = UserDefaults.standard.string(forKey: "username"), let password = UserDefaults.standard.string(forKey: "password") {
-            usernameTextField?.text = username
-            passwordTextField?.text = password
-        } else {
+            rememberImage?.image = UIImage(named: "unchecked")
             usernameTextField?.text = ""
             passwordTextField?.text = ""
         }
-    }
-    
-    func configTextField() {
-        usernameTextField?.borderStyle = .none
-        usernameTextField?.placeholder = "Email"
         
-        passwordTextField?.borderStyle = .none
-        passwordTextField?.placeholder = "Password"
+        
+        showLoading()
         
     }
     
     
+    @IBAction func showAndHidePassword(_ sender: Any) {
+        if passwordTextField?.isSecureTextEntry ?? true {
+            passwordTextField?.isSecureTextEntry = false
+        } else {
+            passwordTextField?.isSecureTextEntry = true
+        }
+    }
     
     @IBAction func rememberButtonTapped(_ sender: Any) {
-        if UserDefaults.standard.bool(forKey: "remember") {
-            UserDefaults.standard.set(false, forKey: "remember")
-            rememberImage?.image = UIImage(named: "rememberunchecked")
+        if userDefault.bool(forKey: remember) {
+            userDefault.set(false, forKey: remember)
+            rememberImage?.image = UIImage(named: "unchecked")
             print("ta false")
         } else {
-            rememberImage?.image = UIImage(named: "rememberchecked")
-            UserDefaults.standard.set(true, forKey: "remember")
+            rememberImage?.image = UIImage(named: "checked")
+            userDefault.set(true, forKey: remember)
             print("ta true")
         }
     }
     
     @IBAction func signButtonTapped(_ sender: Any) {
-        guard let username = usernameTextField?.text else {
-            return
-        }
-        guard let password = passwordTextField?.text else {
-            return
-        }
+        guard let username = usernameTextField?.text else { return }
+        guard let password = passwordTextField?.text else { return }
         
         if username.isEmpty && password.isEmpty {
             for i in 0...1 {
@@ -99,33 +101,44 @@ class LoginViewController: UIViewController {
             messageErrorLabel[i].isHidden = true
         }
         
-        
-//        errorLabel?.text = ""
-        Auth.auth().signIn(withEmail: username, password: password, completion: { (user, error) in
-            if let u = user {
-                if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainViewController") as? MainViewController {
-//                    self.navigationController?.present(vc, animated: true, completion: nil)
-                    self.messageErrorLabel[2].isHidden = true
-                    self.navigationController?.isNavigationBarHidden = false
-                    self.navigationController?.pushViewController(vc, animated: true)
-                    
-                    if UserDefaults.standard.bool(forKey: "remember") {
-                        UserDefaults.standard.set(username, forKey: "username")
-                        UserDefaults.standard.set(password, forKey: "password")
-                    } else {
-                        UserDefaults.standard.removeObject(forKey: "username")
-                        UserDefaults.standard.removeObject(forKey: "password")
-                    }
-
-                    
+        signButton?.startAnimation() // 2: Then start the animation when the user tap the button
+        let qualityOfServiceClass = DispatchQoS.QoSClass.background
+        let backgroundQueue = DispatchQueue.global(qos: qualityOfServiceClass)
+        backgroundQueue.async(execute: {
+            
+            
+            Auth.auth().signIn(withEmail: username, password: password, completion: { (user, error) in
+                if let u = user {
+                    DispatchQueue.main.async(execute: { () -> Void in
+                        self.signButton?.stopAnimation(animationStyle: .normal, completion: {
+                            if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainViewController") as? MainViewController {
+                                self.messageErrorLabel[2].isHidden = true
+                                self.navigationController?.isNavigationBarHidden = false
+                                self.navigationController?.pushViewController(vc, animated: true)
+                                
+                                if self.userDefault.bool(forKey: self.remember) {
+                                    self.userDefault.set(username, forKey: self.username)
+                                    self.userDefault.set(password, forKey: self.password)
+                                } else {
+                                    self.userDefault.removeObject(forKey: self.username)
+                                    self.userDefault.removeObject(forKey: self.password)
+                                }
+                            }
+                        })
+                    })
+                } else {
+                    DispatchQueue.main.async(execute: { () -> Void in
+                        self.signButton?.stopAnimation(animationStyle: .shake, completion: {
+                                UIView.animate(withDuration: 0.1, delay: 0, options: .curveEaseOut, animations: {
+                                    self.messageErrorLabel[2].isHidden = false
+                                })
+                            print("erro login")
+                        })
+                    })
                 }
-            } else {
-                self.messageErrorLabel[2].isHidden = false
-                print("erro login")
-            }
+            })
+            
         })
-        
-        
     }
     
     @IBAction func registerButtonTapped(_ sender: Any) {
@@ -141,4 +154,18 @@ class LoginViewController: UIViewController {
         }
     }
     
+}
+
+extension LoginViewController: UITextFieldDelegate {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        showPasswordButton.isHidden = false
+    }
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        showPasswordButton.isHidden = false
+        return true 
+    }
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        showPasswordButton.isHidden = true
+    }
 }

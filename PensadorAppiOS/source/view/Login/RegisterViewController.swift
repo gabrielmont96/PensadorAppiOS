@@ -8,13 +8,14 @@
 
 import UIKit
 import FirebaseAuth
+import TransitionButton
 
 class RegisterViewController: UIViewController {
 
     @IBOutlet weak var emailTextField: UITextField?
     @IBOutlet weak var passwordTextField: UITextField?
     @IBOutlet weak var screenRegisterView: UIView?
-    @IBOutlet weak var ageTextField: UITextField?
+    @IBOutlet weak var registerButton: TransitionButton?
     
     var emailPrevious = ""
     var passwordPrevious = ""
@@ -29,16 +30,22 @@ class RegisterViewController: UIViewController {
 
         emailTextField?.text = emailPrevious
         passwordTextField?.text = passwordPrevious
+        
     }
-    
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        UIView.animate(withDuration: 0.3, delay: 0.1, options: .curveEaseIn, animations: {
+        configButton()
+        
+        UIView.animate(withDuration: 0.2, delay: 0.1, options: .curveEaseIn, animations: {
             self.view.alpha = 1.0
             
         })
+    }
+    
+    func configButton() {
+        registerButton?.cornerRadius = 20
     }
     
     @IBAction func closeButtonTapped(_ sender: Any) {
