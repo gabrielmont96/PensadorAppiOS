@@ -18,7 +18,7 @@ extension UIViewController {
     
     func showToast(message : String, mode: modeToast) {
         let toastLabel = UILabel(frame: CGRect(x: 0,
-                                               y: self.view.frame.size.height - 50,
+                                               y: self.view.frame.size.height - 75,
                                                width:self.view.frame.size.width ,
                                                height: self.view.frame.size.height - (self.view.frame.size.height - 50)))
         switch mode {

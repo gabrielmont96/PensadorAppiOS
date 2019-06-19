@@ -39,7 +39,6 @@ class MainViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         vwBgSearch = UIView(frame: CGRect(x: 0, y: 160, width: 414, height: 735))
-        vwBgSearch?.backgroundColor = UIColor.black.withAlphaComponent(0.5)
         let tap = UITapGestureRecognizer(target: self, action: #selector(endSearch))
         vwBgSearch?.isUserInteractionEnabled = true
         vwBgSearch?.addGestureRecognizer(tap)
